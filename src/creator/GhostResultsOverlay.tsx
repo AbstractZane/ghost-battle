@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Animated,
   Modal,
@@ -21,6 +21,9 @@ import { StudioAvatar } from './StudioAvatar';
 import type { StudioProfiles } from './studioProfiles';
 import type { VideoRoundSnapshot } from './videoRival';
 import { ghostBattlePresentation } from './ghostChallenges';
+import type { VideoRivalClip } from './videoRival';
+import type { GhostRun } from './ghostRecap';
+import { GhostRecapView } from './GhostRecapView';
 
 export function GhostResultsOverlay({
   identity,
@@ -28,13 +31,18 @@ export function GhostResultsOverlay({
   profiles,
   onRematch,
   onSetup,
+  clip,
+  run,
 }: {
   identity: string;
   snapshot: VideoRoundSnapshot;
   profiles: StudioProfiles;
   onRematch(): void;
   onSetup(): void;
+  clip?: VideoRivalClip;
+  run?: GhostRun;
 }) {
+  const [details, setDetails] = useState(false);
   const { height, fontScale } = useWindowDimensions();
   const view = ghostBattlePresentation(snapshot, snapshot.elapsedMs);
   const sound = useSoundEffects();
@@ -135,11 +143,32 @@ export function GhostResultsOverlay({
             <Text style={styles.barScore}>{score}</Text>
           </View>
         ))}
-        <Text style={styles.caption}>
-          Your score comes from accepted camera reps. The ghost follows your marked video timeline.
-        </Text>
+        <Text style={styles.caption}>Accepted camera reps vs. confirmed recorded timings.</Text>
       </View>
-      <PrimaryButton label="RACE AGAIN" onPress={onRematch} />
+      {clip && run ? (
+        details ? (
+          <>
+            <GhostRecapView clip={clip} run={run} />
+            <PrimaryButton
+              compact
+              label="BACK TO RESULT"
+              variant="quiet"
+              onPress={() => setDetails(false)}
+            />
+          </>
+        ) : (
+          <PrimaryButton
+            compact
+            label="WHERE DID THE RACE TURN?"
+            variant="quiet"
+            onPress={() => setDetails(true)}
+          />
+        )
+      ) : null}
+      <PrimaryButton
+        label={clip ? `REMATCH · BEAT ${clip.repTimesMs.length} REPS` : 'RACE AGAIN'}
+        onPress={onRematch}
+      />
       <PrimaryButton compact label="CHALLENGE LIBRARY" variant="secondary" onPress={onSetup} />
       <Text style={styles.note}>LOCAL CHALLENGE · NO RANKED RATING OR ACCOUNT REWARDS</Text>
     </View>
@@ -159,7 +188,7 @@ export function GhostResultsOverlay({
             },
           ]}
         >
-          {height < 690 || fontScale > 1.2 ? (
+          {details || height < 690 || fontScale > 1.2 ? (
             <ScrollView bounces={false}>{content}</ScrollView>
           ) : (
             content

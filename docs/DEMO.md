@@ -1,30 +1,23 @@
-# A short Ghost Battle demo
+# Three-minute Ghost Battle demo
 
-Aim for a two-minute explanation, with the final round length chosen to match
-your own selected clip. Rehearse on the actual Android phone before judging.
+Use your own short clip. The original video stays the default opponent.
 
-1. **Problem (15 seconds):** “Friends aren't always free to work out together.
-   Ghost Battle lets me compete against a recorded performance whenever I train.”
-2. **Make the challenge (25 seconds):** Import your own short workout clip,
-   show one rep marker, step backward to demonstrate deterministic counting,
-   then save it. Prepare the remaining markers before the presentation so you
-   do not spend the demo editing a long video.
-3. **Race (your clip's duration):** Open the saved challenge, get into camera
-   position, and show the three-second countdown. Perform real push-ups. Explain:
-   “The ghost follows actual video playback; my counter uses PushPVP's existing
-   on-device detector. Pausing freezes the competition.”
-4. **Payoff (15 seconds):** Show the real result, margin and comparison bars,
-   then Race again or return to the saved library.
-5. **Technical contribution (20 seconds):** Explain the new standalone app,
-   challenge library, timing editor, synchronization safeguards, responsive
-   scoreboard and test coverage. Credit the existing PushPVP detector and AI help.
+1. **0:00–0:20:** “Friends are not always free when I work out. Ghost Battle lets
+   me race a recorded performance whenever I train.”
+2. **0:20–0:50:** Import your clip, Auto-find reps, inspect/correct a marker, confirm
+   review, then Save & race. Clearly cut forward if analysis takes time.
+3. **0:50–1:40:** Show original opponent video and live camera, countdown, real
+   accepted push-ups, scores and changing lead. Choose a manageable short round.
+4. **1:40–2:10:** Show the actual result, Where did the race turn?, and rematch
+   target. Describe a paused round as practice.
+5. **2:10–2:40:** Optional: show Ghost Vision, export its motion-only file, import
+   it and preview the same performance without its original footage.
+6. **2:40–3:00:** Explain local inference and playback-time synchronization. Credit
+   the inherited PushPVP detector, models and camera; disclose AI assistance.
+   Identify the new analysis, review, motion, portability and recap work.
 
-Use the local APK without depending on venue Wi-Fi. Have a charged phone,
-permission granted by you, a supported clip, marked timestamps, and adequate
-camera distance/light. Use a safe, manageable number of reps and stop if needed.
-Rehearse Android screen recording and sound yourself; those capabilities have
-not been physically certified by the build or UI tests.
-
-If tracking/permission fails, show the recovery honestly. The separate `qa/`
-layout fixture is only a visual test and must never be presented as a successful
-tracked workout or an actual challenge result.
+Before presenting: manually allow camera access, check framing/light, and complete
+one real race on Android. Rehearse screen recording. Correct missed video markers
+openly. If tracking fails, show recovery; never invent live reps or a result.
+Recorded rivals remain clearly labelled. No universal accuracy, new-model-training
+or health-outcome claim is made.

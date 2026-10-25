@@ -1,8 +1,10 @@
 # Ghost Battle
 
 A standalone push-up challenge app built on the existing PushPVP tracking core.
-Import a workout video, mark completed reps, and race that recorded performance
-with your own live camera. The opponent is a **recorded ghost**, not a live player.
+Import a workout video, discover its reps, review the markers, and race that
+recorded performance with your own live camera. The **original video is the default
+opponent view**. Ghost Vision is optional. Reviewed motion ghosts can be shared
+without their original footage. Opponents are clearly identified as recorded.
 
 Android is the primary judging target. The same interface also runs on web.
 There are no accounts, server costs, subscriptions, ranked ratings, or pretend XP.
@@ -16,9 +18,10 @@ the existing PushPVP app.
 
 1. Open Ghost Battle and choose **Create your first ghost**.
 2. Choose your own video. Use footage you have permission to use.
-3. Name the challenge. Play the video and tap **Mark +1** at the top of each
-   completed push-up. Scrub the timeline, step between markers, remove an
-   incorrect marker, or undo edits. The counter follows the video position.
+3. Tap **Auto-find reps** for clips up to five minutes. Inspect its markers and
+   orange tracking gaps; correct misses with **Mark +1**, Remove or Undo.
+   Confirm review to save extracted body motion. Manual-only videos up to
+   30 minutes continue to work.
 4. Choose **Save & race ghost**, or save to the library for later.
 5. Allow camera access, place the phone so your body is visible, and get into
    the detector's ready position. Fresh tracking starts the three-second countdown.
@@ -26,7 +29,11 @@ the existing PushPVP app.
    The full clip sets the round length. The scoreboard shows the lead, difference,
    remaining time, and progress. Muting is available in the battle menu.
 7. View WIN, LOSS, or TIE, the actual scores, margin, and comparison bars.
-   Race again or return to the library. No result is invented if tracking fails.
+   Open **Where did the race turn?** for the measured lead timeline. Paused or
+   sought rounds are identified as practice. Rematch races the same performance.
+8. **Share motion ghost** exports reviewed body motion, timings and chosen
+   name/title. **Import a shared ghost** replays it without the original footage.
+   Challenge files are user-authored, not verified ranked results.
 
 The battle menu pauses both sides, lets you recover/flip the camera, restart the
 challenge, or return to the library. Resuming gives the camera a fresh liveness
@@ -78,8 +85,9 @@ as a compatible MP4. Android uses the existing bundled inference models.
   independent timer, finalizes the result.
 - Missing files, decoding errors, camera errors and camera stalls have recovery
   or library exits. Paused/stale/duplicate camera rep indices cannot score.
-- Camera frames and pose landmarks are processed on-device and are not saved or
-  uploaded. Selected videos/photos are explicit local imports. Android backup,
+- Live camera frames and landmarks stay on-device and are not saved or uploaded.
+  Imported-video body motion is saved only after explicit review/save. Exports
+  omit video, audio, facial landmarks, portraits and local paths. Android backup,
   microphone and phone-state access are disabled for this standalone app.
 - No new backend, external AI service, automatic pose simulation, or changed
   counting thresholds. Twenty-seven protected camera/workout/detector modules

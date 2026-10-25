@@ -70,3 +70,24 @@ it('recovers its command queue after a storage failure', async () => {
   await repo.save(clip, 'Retry');
   expect((await repo.list())[0]?.title).toBe('Retry');
 });
+it('saves and reloads a portable motion ghost while requiring explicit review', async () => {
+  const motion = {
+    version: 1 as const,
+    durationMs: 5000,
+    aspectRatio: 1,
+    frames: [{ atMs: 0, joints: Array(12).fill(null) }],
+  };
+  const source: VideoRivalClip = {
+    ...clip,
+    version: 2,
+    uri: `ghost:${clip.id}`,
+    motion,
+    analysisReviewed: false,
+    marking: 'detector',
+  };
+  await expect(repo.save(source, 'Portable')).rejects.toThrow('Review');
+  const entry = await repo.save({ ...source, analysisReviewed: true }, 'Portable');
+  expect(entry.version).toBe(2);
+  expect((await repo.list())[0]?.clip.motion).toEqual(motion);
+  expect((await repo.open(entry)).uri).toBe('ghost:first');
+});

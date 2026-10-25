@@ -7,22 +7,75 @@ import { ValueSlider } from '@/components/ValueSlider';
 import { SoundPressable } from '@/components/SoundPressable';
 import { videoRivalScore, type VideoRivalClip } from './videoRival';
 import { addGhostMarker } from './ghostChallenges';
+import { analyzeVideo } from './analyzeVideo';
+import { GhostMotionView } from './GhostMotionView';
+import { MAX_ANALYSIS_MS } from './ghostMotion';
 
 export function GhostClipEditor({
   clip,
   disabled,
   onChange,
   onError,
+  onAnalysisBusy,
 }: {
   clip: VideoRivalClip;
   disabled: boolean;
   onChange(clip: VideoRivalClip): void;
   onError(error: string | null): void;
+  onAnalysisBusy?(busy: boolean): void;
 }) {
   const focused = useIsFocused();
   const [position, setPosition] = useState(0);
   const [playing, setPlaying] = useState(false);
   const undo = useRef<number[][]>([]);
+  const [analysis, setAnalysis] = useState<number | null>(null);
+  const [vision, setVision] = useState(false);
+  const abort = useRef<AbortController | null>(null);
+  useEffect(
+    () => () => {
+      abort.current?.abort();
+    },
+    [],
+  );
+  const analyze = async () => {
+    if (analysis !== null || disabled) return;
+    player.pause();
+    const controller = new AbortController();
+    abort.current = controller;
+    setAnalysis(0);
+    onAnalysisBusy?.(true);
+    onError(null);
+    try {
+      const result = await analyzeVideo(clip, controller.signal, (value) => {
+        if (!controller.signal.aborted) setAnalysis(value);
+      });
+      if (controller.signal.aborted) return;
+      undo.current.push([...clip.repTimesMs]);
+      onChange({
+        ...clip,
+        version: 2,
+        motion: result.motion,
+        repTimesMs: result.repTimesMs,
+        gaps: result.gaps,
+        analysisReviewed: false,
+        marking: 'detector',
+      });
+      setVision(false);
+      if (!result.repTimesMs.length)
+        onError('No complete reps were detected. Inspect tracking gaps and add markers manually.');
+    } catch (cause) {
+      if (!controller.signal.aborted)
+        onError(
+          cause instanceof Error ? cause.message : 'Analysis failed. Manual marking is available.',
+        );
+    } finally {
+      if (abort.current === controller) {
+        abort.current = null;
+        setAnalysis(null);
+        onAnalysisBusy?.(false);
+      }
+    }
+  };
   const player = useVideoPlayer(clip.uri, (video) => {
     video.muted = true;
     video.audioMixingMode = 'mixWithOthers';
@@ -42,7 +95,10 @@ export function GhostClipEditor({
         onError('This video cannot play. Try a local MP4 with a supported codec.');
     });
     const app = AppState.addEventListener('change', (state) => {
-      if (state !== 'active') player.pause();
+      if (state !== 'active') {
+        player.pause();
+        abort.current?.abort();
+      }
     });
     return () => {
       time.remove();
@@ -84,7 +140,7 @@ export function GhostClipEditor({
   };
   const edit = (next: number[]) => {
     undo.current.push([...clip.repTimesMs]);
-    onChange({ ...clip, repTimesMs: next });
+    onChange({ ...clip, repTimesMs: next, marking: 'edited', analysisReviewed: false });
     onError(null);
   };
   const mark = () => {
@@ -102,6 +158,38 @@ export function GhostClipEditor({
           {clip.repTimesMs.length} REPS
         </Text>
       </View>
+      <View style={styles.row}>
+        <PrimaryButton
+          compact
+          label={
+            analysis === null
+              ? clip.motion
+                ? 'RE-ANALYZE'
+                : 'AUTO-FIND REPS'
+              : `ANALYZING ${Math.round(analysis * 100)}% · CANCEL`
+          }
+          variant="secondary"
+          style={styles.tool}
+          disabled={
+            disabled ||
+            (!clip.durationMs && analysis === null) ||
+            (clip.durationMs > MAX_ANALYSIS_MS && analysis === null)
+          }
+          onPress={() => {
+            if (analysis !== null) abort.current?.abort();
+            else void analyze();
+          }}
+        />
+        {clip.motion ? (
+          <PrimaryButton
+            compact
+            label={vision ? 'SHOW VIDEO' : 'GHOST VISION'}
+            variant="quiet"
+            disabled={analysis !== null}
+            onPress={() => setVision(!vision)}
+          />
+        ) : null}
+      </View>
       <View style={styles.video}>
         <VideoView
           player={player}
@@ -112,12 +200,26 @@ export function GhostClipEditor({
           allowsPictureInPicture={false}
           fullscreenOptions={{ enable: false }}
         />
+        {vision && clip.motion ? <GhostMotionView track={clip.motion} atMs={position} /> : null}
         <View pointerEvents="none" style={styles.counter}>
           <Text style={styles.counterText}>{videoRivalScore(clip.repTimesMs, position)}</Text>
           <Text style={styles.counterLabel}>GHOST REPS</Text>
         </View>
       </View>
       <View pointerEvents="none" style={styles.rail}>
+        {clip.gaps?.map((gap) => (
+          <View
+            key={`${gap.fromMs}:${gap.toMs}`}
+            style={{
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              left: `${(gap.fromMs / duration) * 100}%`,
+              width: `${((gap.toMs - gap.fromMs) / duration) * 100}%`,
+              backgroundColor: '#C57742',
+            }}
+          />
+        ))}
         {clip.repTimesMs
           .filter((_, i) => i % Math.max(1, Math.ceil(clip.repTimesMs.length / 120)) === 0)
           .map((time) => (
@@ -134,7 +236,7 @@ export function GhostClipEditor({
         step={100}
         value={Math.min(position, duration)}
         valueText={`${(position / 1000).toFixed(1)} seconds`}
-        disabled={disabled || !clip.durationMs}
+        disabled={disabled || analysis !== null || !clip.durationMs}
         onChange={seek}
       />
       <View style={styles.tools}>
@@ -143,7 +245,7 @@ export function GhostClipEditor({
           label={playing ? 'PAUSE' : 'PLAY'}
           variant="secondary"
           style={styles.tool}
-          disabled={disabled || !clip.durationMs}
+          disabled={disabled || analysis !== null || !clip.durationMs}
           onPress={() => {
             if (playing) player.pause();
             else {
@@ -156,7 +258,7 @@ export function GhostClipEditor({
           compact
           label="MARK +1"
           style={styles.tool}
-          disabled={disabled || !clip.durationMs}
+          disabled={disabled || analysis !== null || !clip.durationMs}
           onPress={mark}
         />
         <PrimaryButton
@@ -164,15 +266,22 @@ export function GhostClipEditor({
           label="UNDO"
           variant="quiet"
           style={styles.tool}
-          disabled={disabled || !undo.current.length}
-          onPress={() => onChange({ ...clip, repTimesMs: undo.current.pop() ?? clip.repTimesMs })}
+          disabled={disabled || analysis !== null || !undo.current.length}
+          onPress={() =>
+            onChange({
+              ...clip,
+              repTimesMs: undo.current.pop() ?? clip.repTimesMs,
+              marking: 'edited',
+              analysisReviewed: false,
+            })
+          }
         />
       </View>
       <View style={styles.row}>
         <SoundPressable
           accessibilityRole="button"
           accessibilityLabel="Previous rep marker"
-          disabled={disabled || selected < 0}
+          disabled={disabled || analysis !== null || selected < 0}
           onPress={() => seek(clip.repTimesMs[Math.max(0, selected - 1)] ?? 0)}
           style={styles.markerButton}
         >
@@ -186,7 +295,7 @@ export function GhostClipEditor({
         <SoundPressable
           accessibilityRole="button"
           accessibilityLabel="Next rep marker"
-          disabled={disabled || selected + 1 >= clip.repTimesMs.length}
+          disabled={disabled || analysis !== null || selected + 1 >= clip.repTimesMs.length}
           onPress={() => seek(clip.repTimesMs[selected + 1] ?? 0)}
           style={styles.markerButton}
         >
@@ -195,21 +304,38 @@ export function GhostClipEditor({
         <SoundPressable
           accessibilityRole="button"
           accessibilityLabel="Remove selected rep marker"
-          disabled={disabled || selected < 0}
+          disabled={disabled || analysis !== null || selected < 0}
           onPress={() => edit(clip.repTimesMs.filter((_, i) => i !== selected))}
           style={styles.markerButton}
         >
           <Text style={styles.remove}>REMOVE</Text>
         </SoundPressable>
       </View>
-      <Text style={styles.hint}>
-        Mark once at the top of each completed rep. Scrub, inspect, remove, or undo. The full video
-        sets the round length.
-      </Text>
+      {clip.motion ? (
+        <SoundPressable
+          accessibilityRole="checkbox"
+          aria-checked={clip.analysisReviewed === true}
+          accessibilityState={{ checked: clip.analysisReviewed === true }}
+          disabled={disabled || analysis !== null}
+          style={styles.review}
+          onPress={() => onChange({ ...clip, analysisReviewed: !clip.analysisReviewed })}
+        >
+          <Text style={styles.hint}>
+            {clip.analysisReviewed ? '☑' : '☐'} I checked the markers. Save body motion with this
+            ghost.
+          </Text>
+        </SoundPressable>
+      ) : (
+        <Text style={styles.hint}>
+          Mark once at each completed rep. Auto analysis: up to 5 minutes. Orange marks tracking
+          gaps.
+        </Text>
+      )}
     </View>
   );
 }
 const styles = StyleSheet.create({
+  review: { minHeight: 44, justifyContent: 'center' },
   videoSurface: { width: '100%', height: '100%' },
   root: { flex: 1, minHeight: 0, gap: 5 },
   row: { flexDirection: 'row', alignItems: 'center', gap: 5 },

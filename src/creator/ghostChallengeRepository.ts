@@ -48,10 +48,12 @@ export const ghostChallengeRepository = {
   list: () => serial(read),
   save: (clip: VideoRivalClip, title: string) =>
     serial(async () => {
+      if (clip.motion && !clip.analysisReviewed)
+        throw new Error('Review the detected markers before saving this motion ghost.');
       const resolved = await clipRepository.resolve(clip);
       if (!resolved) throw new Error('This video is missing. Choose it again before saving.');
       const valid = parseGhostChallenge({
-        version: 1,
+        version: clip.motion ? 2 : 1,
         id: clip.id,
         title,
         clip: resolved,

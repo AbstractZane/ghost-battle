@@ -5,6 +5,7 @@ import { SoundPressable } from '@/components/SoundPressable';
 import { formatDuration } from '@/utils/format';
 import type { GhostChallenge } from './ghostChallenges';
 import { GhostInsignia } from './GhostInsignia';
+import { isMotionOnly } from './videoRival';
 
 export function GhostChallengeLibrary({
   entries,
@@ -13,6 +14,8 @@ export function GhostChallengeLibrary({
   onEdit,
   onRace,
   onRemove,
+  onImport,
+  onShare,
 }: {
   entries: GhostChallenge[];
   busy: boolean;
@@ -20,6 +23,8 @@ export function GhostChallengeLibrary({
   onEdit(entry: GhostChallenge): void;
   onRace(entry: GhostChallenge): void;
   onRemove(entry: GhostChallenge): void;
+  onImport?(): void;
+  onShare?(entry: GhostChallenge): void;
 }) {
   const [removing, setRemoving] = useState<string | null>(null);
   const wide = useWindowDimensions().width >= 800;
@@ -27,10 +32,9 @@ export function GhostChallengeLibrary({
     <View style={styles.root}>
       <View style={styles.intro}>
         <Text style={styles.eyebrow}>YOUR CHALLENGE LIBRARY</Text>
-        <Text style={styles.title}>A rival. Any time.</Text>
+        <Text style={styles.title}>Turn effort into a rival.</Text>
         <Text style={styles.copy}>
-          Beat a recorded performance with real push-ups. Your camera counts. The video sets the
-          pace.
+          Discover reps in a video. Race its motion ghost. Pass the challenge on.
         </Text>
       </View>
       {entries.length ? (
@@ -45,7 +49,9 @@ export function GhostChallengeLibrary({
             <View style={styles.card}>
               <View style={styles.cardHeader}>
                 <Text style={styles.number}>{String(index + 1).padStart(2, '0')}</Text>
-                <Text style={styles.saved}>SAVED ON THIS DEVICE</Text>
+                <Text style={styles.saved}>
+                  {isMotionOnly(item.clip) ? 'MOTION ONLY · NO FOOTAGE' : 'LOCAL VIDEO + MOTION'}
+                </Text>
               </View>
               <Text numberOfLines={2} style={styles.cardTitle}>
                 {item.title}
@@ -65,7 +71,9 @@ export function GhostChallengeLibrary({
                   <Text style={styles.value}>
                     {formatDuration(Math.ceil(item.clip.durationMs / 1000))}
                   </Text>
-                  <Text style={styles.statLabel}>FULL VIDEO ROUND</Text>
+                  <Text style={styles.statLabel}>
+                    {isMotionOnly(item.clip) ? 'MOTION GHOST ROUND' : 'FULL VIDEO ROUND'}
+                  </Text>
                 </View>
               </View>
               <View style={styles.buttons}>
@@ -95,6 +103,17 @@ export function GhostChallengeLibrary({
                   <Text style={styles.editText}>×</Text>
                 </SoundPressable>
               </View>
+              {item.clip.motion && onShare ? (
+                <SoundPressable
+                  accessibilityRole="button"
+                  accessibilityLabel={`Export motion ghost ${item.title}. No original footage.`}
+                  disabled={busy || !item.clip.analysisReviewed}
+                  onPress={() => onShare(item)}
+                  style={styles.share}
+                >
+                  <Text style={styles.editText}>SHARE MOTION GHOST ↗ · NO VIDEO OR AUDIO</Text>
+                </SoundPressable>
+              ) : null}
               {removing === item.id ? (
                 <View style={styles.confirm}>
                   <Text style={styles.copy}>
@@ -129,11 +148,11 @@ export function GhostChallengeLibrary({
           <GhostInsignia />
           <Text style={styles.emptyTitle}>Your next rival is in your camera roll.</Text>
           <Text style={styles.copy}>
-            Choose a workout video, mark each completed push-up, then race the ghost whenever you
-            want.
+            Choose your workout video. Find its reps, create a motion ghost, and race it with real
+            push-ups.
           </Text>
           <View style={styles.steps}>
-            {['1  IMPORT VIDEO', '2  MARK REPS', '3  RACE GHOST'].map((step) => (
+            {['1  IMPORT VIDEO', '2  DISCOVER REPS', '3  RACE THE GHOST'].map((step) => (
               <Text key={step} style={styles.step}>
                 {step}
               </Text>
@@ -146,6 +165,15 @@ export function GhostChallengeLibrary({
         disabled={busy}
         onPress={onNew}
       />
+      {onImport ? (
+        <PrimaryButton
+          compact
+          label="IMPORT A SHARED GHOST"
+          variant="secondary"
+          disabled={busy}
+          onPress={onImport}
+        />
+      ) : null}
       <Text style={styles.note}>
         Local challenges · recorded opponent · no uploads or ranked rating
       </Text>
@@ -153,6 +181,7 @@ export function GhostChallengeLibrary({
   );
 }
 const styles = StyleSheet.create({
+  share: { minHeight: 44, justifyContent: 'center' },
   confirm: { gap: 8, borderTopWidth: 1, borderColor: '#37435A', paddingTop: 10 },
   root: { flex: 1, gap: 12, minHeight: 0 },
   intro: { gap: 8, paddingTop: 8 },

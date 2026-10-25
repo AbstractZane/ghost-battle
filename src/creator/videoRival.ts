@@ -1,12 +1,19 @@
-/** Private, local staged gameplay. Never an online match, rating, or reward receipt. */
+import { parseMotionTrack, type GhostMotionTrack } from './ghostMotion';
+import type { GhostRun } from './ghostRecap';
+/** Local recorded challenge. Never an online match, rating, or reward receipt. */
 export interface VideoRivalClip {
-  version: 1;
+  version: 1 | 2;
   id: string;
   name: string;
   uri: string;
   durationMs: number;
   repTimesMs: number[];
+  motion?: GhostMotionTrack;
+  analysisReviewed?: boolean;
+  marking?: 'detector' | 'edited';
+  gaps?: { fromMs: number; toMs: number }[];
 }
+export const isMotionOnly = (clip: VideoRivalClip) => clip.uri.startsWith('ghost:');
 
 export function normalizeRepTimes(value: unknown, durationMs: number): number[] {
   if (!Array.isArray(value) || value.length > 5_000) throw new Error('Invalid pushup timings.');
@@ -27,14 +34,18 @@ export function parseVideoRivalClip(value: unknown): VideoRivalClip | null {
   if (!value || typeof value !== 'object') return null;
   const clip = value as Partial<VideoRivalClip>;
   if (
-    clip.version !== 1 ||
+    (clip.version !== 1 && clip.version !== 2) ||
     typeof clip.id !== 'string' ||
     !/^[a-zA-Z0-9_-]{1,90}$/.test(clip.id) ||
     typeof clip.name !== 'string' ||
     !clip.name.trim() ||
     clip.name.length > 32 ||
     typeof clip.uri !== 'string' ||
-    !(clip.uri.startsWith('file://') || clip.uri.startsWith('blob:')) ||
+    !(
+      clip.uri.startsWith('file://') ||
+      clip.uri.startsWith('blob:') ||
+      (clip.version === 2 && clip.uri === `ghost:${clip.id}`)
+    ) ||
     typeof clip.durationMs !== 'number' ||
     !Number.isFinite(clip.durationMs) ||
     clip.durationMs < 1_000 ||
@@ -42,13 +53,40 @@ export function parseVideoRivalClip(value: unknown): VideoRivalClip | null {
   )
     return null;
   try {
+    const motion = clip.motion === undefined ? undefined : parseMotionTrack(clip.motion);
+    if (
+      motion === null ||
+      (motion && motion.durationMs !== Math.round(clip.durationMs)) ||
+      (clip.uri.startsWith('ghost:') && (!motion || clip.analysisReviewed !== true))
+    )
+      return null;
+    const gaps =
+      Array.isArray(clip.gaps) && clip.gaps.length <= 4600
+        ? clip.gaps.filter(
+            (g) =>
+              g &&
+              Number.isInteger(g.fromMs) &&
+              Number.isInteger(g.toMs) &&
+              g.fromMs >= 0 &&
+              g.toMs >= g.fromMs &&
+              g.toMs <= clip.durationMs!,
+          )
+        : undefined;
     return {
-      version: 1,
+      version: clip.version,
       id: clip.id,
       name: clip.name.trim(),
       uri: clip.uri,
       durationMs: Math.round(clip.durationMs),
       repTimesMs: normalizeRepTimes(clip.repTimesMs, clip.durationMs),
+      ...(motion
+        ? {
+            motion,
+            analysisReviewed: clip.analysisReviewed === true,
+            marking: clip.marking === 'detector' ? ('detector' as const) : ('edited' as const),
+          }
+        : {}),
+      ...(gaps ? { gaps } : {}),
     };
   } catch {
     return null;
@@ -84,6 +122,7 @@ export class VideoRivalRound {
   private playerScore = 0;
   private lastRepIndex = 0;
   private playable = false;
+  private run: GhostRun = { version: 1, playerRepTimesMs: [], practice: false, interruptions: 0 };
   private resumePhase: 'active' | 'countdown' = 'active';
   readonly clip: VideoRivalClip;
   constructor(clip: VideoRivalClip) {
@@ -106,6 +145,7 @@ export class VideoRivalRound {
   }
   pause() {
     if (this.phase === 'active' || this.phase === 'countdown') {
+      if (this.phase === 'active') this.run.interruptions++;
       this.resumePhase = this.phase;
       this.phase = 'paused';
     }
@@ -145,6 +185,7 @@ export class VideoRivalRound {
       return false;
     this.lastRepIndex = index;
     this.playerScore++;
+    this.run.playerRepTimesMs.push(Math.max(1, Math.round(this.elapsedMs)));
     return true;
   }
   canAcceptReps() {
@@ -153,6 +194,7 @@ export class VideoRivalRound {
   /** Explicit media seek only. Never rolls back or fabricates accepted camera reps. */
   seek(positionMs: number) {
     if (this.phase === 'complete' || !Number.isFinite(positionMs)) return;
+    if (this.phase === 'active') this.run.practice = true;
     this.elapsedMs = Math.min(this.clip.durationMs, Math.max(0, positionMs));
     this.playable = false;
   }
@@ -173,5 +215,24 @@ export class VideoRivalRound {
               : 'draw'
           : null,
     };
+  }
+  resultRun(): GhostRun {
+    return { ...this.run, playerRepTimesMs: [...this.run.playerRepTimesMs] };
+  }
+}
+
+/** Motion-only challenges have no media player; inactive time never advances this clock. */
+export class GhostActiveClock {
+  private elapsed = 0;
+  private last: number | null = null;
+  tick(now: number, active: boolean): number {
+    if (!Number.isFinite(now)) return this.elapsed;
+    if (this.last !== null && now < this.last) return this.elapsed;
+    if (active && this.last !== null) this.elapsed += Math.max(0, now - this.last);
+    this.last = active ? now : null;
+    return this.elapsed;
+  }
+  pause() {
+    this.last = null;
   }
 }

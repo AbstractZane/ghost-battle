@@ -100,6 +100,8 @@ vi.mock('@/components/SoundPressable', () => ({
   ),
 }));
 vi.mock('@/components/ValueSlider', () => ({ ValueSlider: () => null }));
+vi.mock('./ghostSharing', () => ({ importGhost: vi.fn(), shareGhost: vi.fn() }));
+vi.mock('./analyzeVideo', () => ({ analyzeVideo: vi.fn() }));
 vi.mock('./StudioAvatar', () => ({ StudioAvatar: () => null }));
 vi.mock('./StudioProfilesEditor', () => ({ StudioProfilesEditor: () => null }));
 vi.mock('@/audio/SoundToggle', () => ({ SoundToggle: () => null }));

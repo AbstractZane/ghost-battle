@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, StyleSheet, Text, View } from 'react-native';
-import { useReducedInteractionMotion } from '@/components/InteractionMotion';
+import {
+  useReducedInteractionMotion,
+  useInteractionTransition,
+} from '@/components/InteractionMotion';
 import { SoundPressable } from '@/components/SoundPressable';
 import { formatDuration } from '@/utils/format';
 import { ghostBattlePresentation } from './ghostChallenges';
@@ -16,6 +19,7 @@ export function GhostScoreboard({
   onMenu(): void;
 }) {
   const view = ghostBattlePresentation(snapshot, durationMs);
+  const share = useInteractionTransition(Math.max(0.01, Math.min(0.99, view.share)), 250);
   return (
     <View style={styles.board}>
       <View style={styles.top}>
@@ -52,8 +56,15 @@ export function GhostScoreboard({
         <Text style={styles.ghost}>GHOST · {snapshot.opponentScore}</Text>
       </View>
       <View style={styles.tug}>
-        <View style={{ flex: Math.max(0.01, view.share), backgroundColor: '#C5F68F' }} />
-        <View style={{ flex: Math.max(0.01, 1 - view.share), backgroundColor: '#AA86F4' }} />
+        <View style={{ ...StyleSheet.absoluteFill, backgroundColor: '#AA86F4' }} />
+        <Animated.View
+          style={{
+            ...StyleSheet.absoluteFill,
+            backgroundColor: '#C5F68F',
+            transformOrigin: 'left center',
+            transform: [{ scaleX: share }],
+          }}
+        />
       </View>
       <View
         style={styles.progress}

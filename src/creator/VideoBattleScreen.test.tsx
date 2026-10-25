@@ -16,6 +16,7 @@ const mocks = vi.hoisted(() => {
     nextRep: null as number | null,
     accept: false,
     ready: true,
+    motionOnly: false,
     released: false,
     camera: undefined as
       { onPose(pose: PoseResult): void; onError(error: string): void } | undefined,
@@ -178,6 +179,20 @@ vi.mock('./clipRepository', () => ({
         uri: 'file:///app/clip.mp4',
         durationMs: 5000,
         repTimesMs: [2000, 4000],
+        ...(mocks.motionOnly
+          ? {
+              version: 2,
+              uri: 'ghost:clip',
+              analysisReviewed: true,
+              marking: 'detector',
+              motion: {
+                version: 1,
+                durationMs: 5000,
+                aspectRatio: 1,
+                frames: [{ atMs: 0, joints: Array(12).fill(null) }],
+              },
+            }
+          : {}),
       }),
   },
 }));
@@ -216,7 +231,7 @@ async function start() {
       vi.advanceTimersByTime(100);
     });
   }
-  expect(mocks.player.play).toHaveBeenCalledOnce();
+  expect(mocks.player.play).toHaveBeenCalledTimes(mocks.motionOnly ? 0 : 1);
 }
 beforeEach(() => {
   vi.clearAllMocks();
@@ -227,6 +242,7 @@ beforeEach(() => {
   mocks.player.currentTime = 0;
   mocks.player.playing = false;
   mocks.ready = true;
+  mocks.motionOnly = false;
   mocks.released = false;
   mocks.player.play.mockImplementation(() => {
     mocks.player.playing = true;
@@ -274,7 +290,7 @@ it('starts from fresh setup, scores accepted reps, and shows the website victory
   expect(host.querySelectorAll('[data-photo="file:///app/rival.jpg"]').length).toBeGreaterThan(1);
   expect(host.textContent).not.toContain('Local camera');
   expect(mocks.session.setPaused).toHaveBeenLastCalledWith(true);
-  await click('RACE AGAIN');
+  await click('REMATCH · BEAT 2 REPS');
   expect(mocks.navigation.replace).toHaveBeenCalledWith('VideoBattle', { clipId: 'clip' });
 });
 it('freezes both sides in the menu and discards partial tracking on resume', async () => {
@@ -355,4 +371,34 @@ it.each([
   expect(host.querySelector('[data-testid="victory"]')).toBeNull();
   await click('CHALLENGE LIBRARY');
   expect(mocks.navigation.popTo).toHaveBeenCalledWith('CreatorStudio');
+});
+it('runs an imported motion-only ghost on active time and keeps the live camera until completion', async () => {
+  mocks.motionOnly = true;
+  const monotonic = vi.spyOn(performance, 'now').mockImplementation(() => Date.now());
+  try {
+    await start();
+    expect(host.textContent).toContain('GHOST VISION');
+    expect(host.textContent).toContain('Local camera');
+    for (let i = 0; i < 4; i++) {
+      await feed();
+      await update(() => vi.advanceTimersByTime(250));
+    }
+    await feed(1);
+    await click('Battle menu');
+    await update(() => vi.advanceTimersByTime(10000));
+    expect(host.textContent).toContain('GHOST · 0');
+    await click('RESUME');
+    for (let i = 0; i < 17; i++) {
+      await feed();
+      await update(() => vi.advanceTimersByTime(250));
+    }
+    expect(host.textContent).toContain('LOSS');
+    expect(host.textContent).toContain('Lost by 1 push-up');
+    expect(host.textContent).not.toContain('Local camera');
+    await click('WHERE DID THE RACE TURN?');
+    expect(host.textContent).toContain('Practice round');
+    expect(mocks.player.play).not.toHaveBeenCalled();
+  } finally {
+    monotonic.mockRestore();
+  }
 });

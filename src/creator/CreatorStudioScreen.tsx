@@ -18,7 +18,10 @@ import { SoundToggle } from '@/audio/SoundToggle';
 import { useAppStore } from '@/store/appStore';
 import type { RootStackParamList } from '@/types/navigation';
 import { clipRepository } from './clipRepository';
-import { type VideoRivalClip } from './videoRival';
+import { isMotionOnly, type VideoRivalClip } from './videoRival';
+import { GhostMotionEditor } from './GhostMotionEditor';
+import { importGhost, shareGhost } from './ghostSharing';
+import { createId } from '@/utils/format';
 import { defaultStudioProfiles, type StudioProfiles } from './studioProfiles';
 import { studioProfilesRepository } from './studioProfilesRepository';
 import { StudioAvatar } from './StudioAvatar';
@@ -42,6 +45,8 @@ export function CreatorStudioScreen() {
   const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(0);
   const [busy, setBusy] = useState(false);
+  const [analysisBusy, setAnalysisBusy] = useState(false);
+  const working = busy || analysisBusy;
   const [error, setError] = useState<string | null>(null);
   const mounted = useRef(true);
   const visit = useRef<object | null>(null);
@@ -138,7 +143,7 @@ export function CreatorStudioScreen() {
     });
   const save = (race: boolean) =>
     run(async () => {
-      if (!clip) return;
+      if (!clip || (clip.motion && !clip.analysisReviewed)) return;
       saving.current = true;
       try {
         const entry = await ghostChallengeRepository.save(
@@ -185,8 +190,9 @@ export function CreatorStudioScreen() {
               <SoundPressable
                 accessibilityRole="button"
                 accessibilityLabel="Challenge library"
+                disabled={working}
                 onPress={() => {
-                  if (!busy) {
+                  if (!working) {
                     setPage('library');
                     setError(null);
                   }
@@ -205,7 +211,7 @@ export function CreatorStudioScreen() {
                 key={role}
                 accessibilityRole="button"
                 accessibilityLabel={`Edit ${role === 'player' ? 'your' : 'opponent'} name and photo`}
-                disabled={busy || loading}
+                disabled={working || loading}
                 onPress={() => setEditingPlayers(true)}
                 style={styles.playerCard}
               >
@@ -232,8 +238,11 @@ export function CreatorStudioScreen() {
               </Text>
               <PrimaryButton
                 compact
-                label="RETRY LIBRARY"
-                onPress={() => setReload((value) => value + 1)}
+                label={page === 'library' ? 'RETRY LIBRARY' : 'DISMISS'}
+                onPress={() => {
+                  if (page === 'library') setReload((value) => value + 1);
+                  else setError(null);
+                }}
               />
             </View>
           ) : null}
@@ -244,10 +253,31 @@ export function CreatorStudioScreen() {
           ) : page === 'library' ? (
             <GhostChallengeLibrary
               entries={entries}
-              busy={busy}
+              busy={working}
               onNew={() => void choose()}
               onEdit={(item) => void edit(item)}
               onRace={(item) => void race(item)}
+              onShare={(item) => void run(() => shareGhost(item.clip, item.title))}
+              onImport={() =>
+                void run(async () => {
+                  const data = await importGhost();
+                  if (!data || !mounted.current || !visit.current) return;
+                  const id = createId('motion');
+                  const imported: VideoRivalClip = {
+                    version: 2,
+                    id,
+                    uri: `ghost:${id}`,
+                    name: data.name,
+                    durationMs: data.durationMs,
+                    repTimesMs: data.repTimesMs,
+                    motion: data.motion,
+                    analysisReviewed: true,
+                    marking: data.marking,
+                  };
+                  const entry = await ghostChallengeRepository.save(imported, data.title);
+                  if (mounted.current) setEntries((current) => [entry, ...current]);
+                })
+              }
               onRemove={(item) =>
                 void run(async () => {
                   await ghostChallengeRepository.remove(item.id);
@@ -262,24 +292,35 @@ export function CreatorStudioScreen() {
                 accessibilityLabel="Challenge name"
                 value={title}
                 onChangeText={setTitle}
-                editable={!busy}
+                editable={!working}
                 maxLength={60}
                 placeholder="Name your challenge"
                 placeholderTextColor="#72839D"
                 style={styles.titleInput}
                 returnKeyType="done"
               />
-              <GhostClipEditor
-                key={clip.id}
-                clip={clip}
-                disabled={busy || editingPlayers}
-                onChange={setClip}
-                onError={setError}
-              />
+              {isMotionOnly(clip) ? (
+                <GhostMotionEditor key={clip.id} clip={clip} />
+              ) : (
+                <GhostClipEditor
+                  key={clip.id}
+                  clip={clip}
+                  disabled={busy || editingPlayers}
+                  onChange={setClip}
+                  onError={setError}
+                  onAnalysisBusy={setAnalysisBusy}
+                />
+              )}
               <View style={styles.actions}>
                 <PrimaryButton
                   label="SAVE & RACE GHOST"
-                  disabled={busy || !title.trim() || !clip.repTimesMs.length || !clip.durationMs}
+                  disabled={
+                    working ||
+                    !title.trim() ||
+                    !clip.repTimesMs.length ||
+                    !clip.durationMs ||
+                    (!!clip.motion && !clip.analysisReviewed)
+                  }
                   loading={busy}
                   onPress={() => void save(true)}
                 />
@@ -288,7 +329,12 @@ export function CreatorStudioScreen() {
                     compact
                     label="SAVE TO LIBRARY"
                     variant="secondary"
-                    disabled={busy || !title.trim() || !clip.repTimesMs.length}
+                    disabled={
+                      working ||
+                      !title.trim() ||
+                      !clip.repTimesMs.length ||
+                      (!!clip.motion && !clip.analysisReviewed)
+                    }
                     onPress={() => void save(false)}
                     style={styles.action}
                   />
@@ -296,7 +342,7 @@ export function CreatorStudioScreen() {
                     compact
                     label="CHANGE VIDEO"
                     variant="quiet"
-                    disabled={busy}
+                    disabled={working}
                     onPress={() => void choose()}
                     style={styles.action}
                   />

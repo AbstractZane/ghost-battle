@@ -6,7 +6,7 @@ import {
 } from './videoRival';
 
 export interface GhostChallenge {
-  version: 1;
+  version: 1 | 2;
   id: string;
   title: string;
   clip: VideoRivalClip;
@@ -17,7 +17,7 @@ export function parseGhostChallenge(value: unknown): GhostChallenge | null {
   const item = value as Partial<GhostChallenge>;
   const clip = parseVideoRivalClip(item.clip);
   if (
-    item.version !== 1 ||
+    (item.version !== 1 && item.version !== 2) ||
     !clip?.repTimesMs.length ||
     item.id !== clip.id ||
     typeof item.title !== 'string' ||
@@ -27,7 +27,13 @@ export function parseGhostChallenge(value: unknown): GhostChallenge | null {
     !Number.isFinite(Date.parse(item.savedAt))
   )
     return null;
-  return { version: 1, id: clip.id, title: item.title.trim(), clip, savedAt: item.savedAt };
+  return {
+    version: clip.motion ? 2 : item.version,
+    id: clip.id,
+    title: item.title.trim(),
+    clip,
+    savedAt: item.savedAt,
+  };
 }
 
 /** Editor tap spacing prevents accidental double marks; it is not a detector threshold. */

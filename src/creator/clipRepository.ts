@@ -16,6 +16,7 @@ function owned(uri: string) {
 export const clipRepository = {
   async resolve(clip: VideoRivalClip): Promise<VideoRivalClip | null> {
     const valid = parseVideoRivalClip(clip);
+    if (valid?.uri.startsWith('ghost:')) return valid;
     if (!valid || !owned(valid.uri)) return null;
     return (await FileSystem.getInfoAsync(valid.uri)).exists ? valid : null;
   },
@@ -32,6 +33,7 @@ export const clipRepository = {
     } catch {
       /* Authored recovery below. */
     }
+    if (clip?.uri.startsWith('ghost:')) return clip;
     if (!clip || !owned(clip.uri))
       throw new Error('Your saved video setup could not load. Choose the clip again.');
     if (!(await FileSystem.getInfoAsync(clip.uri)).exists)
@@ -61,9 +63,13 @@ export const clipRepository = {
   },
   async save(clip: VideoRivalClip): Promise<VideoRivalClip> {
     const valid = parseVideoRivalClip(clip);
-    if (!valid || !owned(valid.uri) || !valid.repTimesMs.length)
+    if (
+      !valid ||
+      (!valid.uri.startsWith('ghost:') && !owned(valid.uri)) ||
+      !valid.repTimesMs.length
+    )
       throw new Error('Add a name and pushup timings before saving.');
-    if (!(await FileSystem.getInfoAsync(valid.uri)).exists)
+    if (!valid.uri.startsWith('ghost:') && !(await FileSystem.getInfoAsync(valid.uri)).exists)
       throw new Error('That video is no longer on this device. Choose it again.');
     const database = await getDatabase();
     await database.runAsync(

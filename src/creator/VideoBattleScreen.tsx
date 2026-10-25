@@ -33,7 +33,10 @@ import type { RootStackParamList } from '@/types/navigation';
 import type { PoseResult } from '@/pose/poseTypes';
 import type { ExerciseDetectionResult } from '@/exercises/pushup/pushupTypes';
 import { clipRepository } from './clipRepository';
-import { VideoRivalRound, type VideoRivalClip } from './videoRival';
+import { VideoRivalRound, GhostActiveClock, isMotionOnly, type VideoRivalClip } from './videoRival';
+import { GhostMotionView } from './GhostMotionView';
+import { GhostRepBurst } from './GhostRepBurst';
+import { SoundPressable } from '@/components/SoundPressable';
 import { defaultStudioProfiles, type StudioProfiles } from './studioProfiles';
 import { studioProfilesRepository } from './studioProfilesRepository';
 import { StudioAvatar } from './StudioAvatar';
@@ -88,6 +91,7 @@ export function VideoBattleScreen({ route, navigation }: Props) {
 }
 
 function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: StudioProfiles }) {
+  const motionOnly = isMotionOnly(clip);
   const wide = useWindowDimensions().width >= 800;
   const screenFocused = useIsFocused();
   const reduced = useReducedInteractionMotion();
@@ -98,7 +102,9 @@ function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: Studi
   const [countdown, setCountdown] = useState(3);
   const [menu, setMenu] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [videoReady, setVideoReady] = useState(false);
+  const [videoReady, setVideoReady] = useState(motionOnly);
+  const [vision, setVision] = useState(motionOnly);
+  const [clock] = useState(() => new GhostActiveClock());
   const [leaving, setLeaving] = useState<'library' | 'restart' | null>(null);
   const [trackingError, setTrackingError] = useState<string | null>(null);
   const focused = useRef(false);
@@ -106,12 +112,13 @@ function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: Studi
   const lastCue = useRef<number | null>(null);
   const lastPoseAt = useRef(0);
   const readiness = useRef(false);
+  const pauseRef = useRef<() => void>(() => undefined);
   const settings = useAppStore((state) => state.settings);
   const name = profiles.player.name;
   const opponent = profiles.opponent.name;
   const sound = useSoundEffects();
   const { facing, flipFacing, selectFacing } = usePreferredCamera();
-  const player = useVideoPlayer(clip.uri, (video) => {
+  const player = useVideoPlayer(motionOnly ? null : clip.uri, (video) => {
     video.muted = true;
     video.audioMixingMode = 'mixWithOthers';
     video.loop = false;
@@ -123,6 +130,11 @@ function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: Studi
   const onDetectorFrame = useCallback(
     (result: ExerciseDetectionResult) => {
       readiness.current = workoutPoseReady(result);
+      if (round.snapshot().phase === 'active' && result.metrics?.signalQuality === 'LOST') {
+        pauseRef.current();
+        setMenu(true);
+        return;
+      }
       if (result.rep && round.acceptRep(result.rep.index)) publish();
     },
     [publish, round],
@@ -133,11 +145,13 @@ function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: Studi
     onDetectorFrame,
   });
   const pause = useCallback(() => {
+    clock.pause();
     round.pause();
     player.pause();
     workout.setPaused(true);
     publish();
-  }, [player, publish, round, workout.setPaused]);
+  }, [clock, player, publish, round, workout.setPaused]);
+  pauseRef.current = pause;
   const processPose = useCallback(
     (pose: PoseResult) => {
       if (!focused.current) return;
@@ -145,12 +159,15 @@ function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: Studi
       if (phase === 'paused' || phase === 'complete') return;
       lastPoseAt.current = Date.now();
       if (phase === 'active') {
-        round.observe(player.currentTime * 1000, player.playing && player.status === 'readyToPlay');
+        round.observe(
+          motionOnly ? clock.tick(performance.now(), true) : player.currentTime * 1000,
+          motionOnly || (player.playing && player.status === 'readyToPlay'),
+        );
         if (!round.canAcceptReps()) return;
       }
       workout.processPose(pose);
     },
-    [player, round, workout.processPose],
+    [clock, motionOnly, player, round, workout.processPose],
   );
   const invalidate = useCallback(
     (reason?: string) => {
@@ -189,6 +206,7 @@ function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: Studi
     return () => sub.remove();
   }, [pause, round]);
   useEffect(() => {
+    if (motionOnly) return;
     const metadata = (duration: number) => {
       if (Math.abs(duration * 1000 - clip.durationMs) > 250) {
         pause();
@@ -207,7 +225,8 @@ function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: Studi
       } else if (status === 'readyToPlay') {
         metadata(player.duration);
       } else if (status === 'loading' && round.snapshot().phase === 'active') {
-        round.observe(player.currentTime * 1000, false);
+        pause();
+        setMenu(true);
         workout.invalidatePartialTracking('video-buffering');
         publish();
       }
@@ -235,6 +254,7 @@ function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: Studi
       end.remove();
     };
   }, [
+    motionOnly,
     clip.durationMs,
     pause,
     player,
@@ -271,14 +291,19 @@ function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: Studi
         workout.resetTracking();
         workout.setPaused(false);
         round.start();
-        player.currentTime = 0;
-        player.play();
+        if (motionOnly) clock.tick(performance.now(), true);
+        else {
+          player.currentTime = 0;
+          player.play();
+        }
         publish();
         sound.play('go', { eventKey: `${identity}:go`, scope: identity });
       }
     }, 100);
     return () => clearInterval(timer);
   }, [
+    clock,
+    motionOnly,
     identity,
     menu,
     player,
@@ -321,10 +346,25 @@ function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: Studi
       deadline.current = Date.now() + 3000;
       setCountdown(3);
       lastCue.current = null;
-    } else if (round.snapshot().phase === 'active') player.play();
+    } else if (round.snapshot().phase === 'active') {
+      if (motionOnly) clock.tick(performance.now(), true);
+      else player.play();
+    }
     setMenu(false);
     publish();
   };
+  useEffect(() => {
+    if (!motionOnly || snapshot.phase !== 'active' || menu || !screenFocused) return;
+    const timer = setInterval(() => {
+      const at = clock.tick(performance.now(), true);
+      round.observe(Math.min(at, clip.durationMs), true, at >= clip.durationMs);
+      publish();
+    }, 50);
+    return () => {
+      clearInterval(timer);
+      clock.pause();
+    };
+  }, [clip.durationMs, clock, menu, motionOnly, publish, round, screenFocused, snapshot.phase]);
   useEffect(() => {
     if (snapshot.phase !== 'active') return;
     const watchdog = setInterval(() => {
@@ -364,16 +404,36 @@ function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: Studi
       </SafeAreaView>
       <View style={[styles.arena, wide && styles.arenaWide]}>
         <View style={styles.opponentPanel}>
-          <VideoView
-            player={player}
-            style={[StyleSheet.absoluteFill, styles.videoSurface]}
-            contentFit="contain"
-            surfaceType="textureView"
-            nativeControls={false}
-            allowsPictureInPicture={false}
-            fullscreenOptions={{ enable: false }}
-            useExoShutter={false}
-          />
+          {!motionOnly ? (
+            <VideoView
+              player={player}
+              style={[StyleSheet.absoluteFill, styles.videoSurface]}
+              contentFit="contain"
+              surfaceType="textureView"
+              nativeControls={false}
+              allowsPictureInPicture={false}
+              fullscreenOptions={{ enable: false }}
+              useExoShutter={false}
+            />
+          ) : null}
+          {vision && clip.motion ? (
+            <GhostMotionView
+              track={clip.motion}
+              atMs={snapshot.elapsedMs}
+              score={snapshot.opponentScore}
+            />
+          ) : null}
+          <GhostRepBurst score={snapshot.opponentScore} />
+          {clip.motion && !motionOnly ? (
+            <SoundPressable
+              accessibilityRole="button"
+              accessibilityLabel={vision ? 'Show recorded video' : 'Show motion ghost'}
+              style={styles.visionToggle}
+              onPress={() => setVision(!vision)}
+            >
+              <Text style={styles.visionText}>{vision ? 'VIDEO' : 'GHOST VISION'}</Text>
+            </SoundPressable>
+          ) : null}
           <View pointerEvents="none" style={styles.opponentPlate}>
             <StudioAvatar name={opponent} photoUri={profiles.opponent.photoUri} size={32} />
             <View>
@@ -410,6 +470,7 @@ function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: Studi
               />
             </View>
           ) : null}
+          <GhostRepBurst score={snapshot.playerScore} own />
           <SafeAreaView edges={['bottom']} pointerEvents="none" style={styles.localPlate}>
             <StudioAvatar name={name} photoUri={profiles.player.photoUri} size={32} />
             <View>
@@ -488,6 +549,8 @@ function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: Studi
           identity={identity}
           snapshot={snapshot}
           profiles={profiles}
+          clip={clip}
+          run={round.resultRun()}
           onRematch={() => navigation.replace('VideoBattle', { clipId: clip.id })}
           onSetup={() => navigation.popTo('CreatorStudio')}
         />
@@ -497,6 +560,17 @@ function VideoBattle({ clip, profiles }: { clip: VideoRivalClip; profiles: Studi
 }
 
 const styles = StyleSheet.create({
+  visionToggle: {
+    position: 'absolute',
+    top: 4,
+    right: 10,
+    minHeight: 44,
+    justifyContent: 'center',
+    paddingHorizontal: 12,
+    borderRadius: 12,
+    backgroundColor: '#171A30E8',
+  },
+  visionText: { fontSize: 9, color: '#DECDFB', fontWeight: '900', letterSpacing: 0.5 },
   videoSurface: { width: '100%', height: '100%' },
   root: { flex: 1, backgroundColor: '#060910' },
   scoreHeader: { backgroundColor: '#0A111E' },

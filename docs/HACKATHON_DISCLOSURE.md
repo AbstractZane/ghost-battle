@@ -19,6 +19,11 @@ this Ghost Battle pass; it is not a fabricated event-start snapshot.
 
 ## Work added in this pass
 
+Ghost Vision additionally adds recorded-video analysis, reviewed body-motion
+extraction, optional motion rendering, motion-only export/import, an active clock
+for motion-only races and measured race recaps. The original video remains the
+default view. The underlying detector, models, calibration and camera are reused.
+
 - A separate standalone repository/app/package, isolated from the deployed app.
 - A multi-challenge local library with save, edit, replay, and metadata removal.
 - A cleaner timing editor with visible markers, previous/next inspection,

@@ -25,11 +25,14 @@ function mediaUrl(id: string, blob: Blob) {
 }
 export const clipRepository = {
   async resolve(clip: VideoRivalClip): Promise<VideoRivalClip | null> {
+    if (clip.uri.startsWith('ghost:')) return parseVideoRivalClip(clip);
     const saved = record(await browserStore.read(`video:${clip.id}`));
     if (!saved) return null;
     return parseVideoRivalClip({ ...clip, uri: mediaUrl(clip.id, saved.blob) });
   },
   async load(): Promise<VideoRivalClip | null> {
+    const motion = await browserStore.read('active-motion');
+    if (motion) return parseVideoRivalClip(motion);
     const id = await browserStore.read('active-video');
     if (typeof id !== 'string') return null;
     const saved = record(await browserStore.read(`video:${id}`));
@@ -68,11 +71,16 @@ export const clipRepository = {
   async save(clip: VideoRivalClip): Promise<VideoRivalClip> {
     const valid = parseVideoRivalClip(clip);
     if (!valid?.repTimesMs.length) throw new Error('Add completed-rep timestamps before saving.');
+    if (valid.uri.startsWith('ghost:')) {
+      await browserStore.write('active-motion', valid);
+      return valid;
+    }
     const saved = record(await browserStore.read(`video:${valid.id}`));
     if (!saved) throw new Error('That video is missing. Choose it again.');
     const resolved = { ...valid, uri: mediaUrl(valid.id, saved.blob) };
     await browserStore.write(`video:${valid.id}`, { blob: saved.blob, clip: resolved });
     await browserStore.write('active-video', valid.id);
+    await browserStore.remove('active-motion');
     return resolved;
   },
   async discard(uri: string): Promise<void> {

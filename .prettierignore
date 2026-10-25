@@ -1,0 +1,17 @@
+node_modules
+android
+ios
+.expo
+.vercel
+coverage
+.agents
+.local-data
+.tools
+dist
+dist-*
+web-build
+is-it-verity-master
+package-lock.json
+assets/models/*.tflite
+PUSHPVP_MEGA_PROMPT.md
+tore --staged PUSHPVP_MEGA_PROMPT.md

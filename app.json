@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "Ghost Battle",
+    "slug": "ghost-battle",
+    "version": "0.1.0",
+    "orientation": "default",
+    "userInterfaceStyle": "dark",
+    "scheme": "ghostbattle",
+    "android": {
+      "package": "com.pushpvp.ghostbattle"
+    },
+    "plugins": ["expo-video", "expo-document-picker", "expo-sqlite"]
+  }
+}

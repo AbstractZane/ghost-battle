@@ -1,0 +1,1463 @@
+{
+  "source": "PushPVP local source before the Ghost Battle pass",
+  "capturedDate": "2026-10-25 America/New_York",
+  "note": "A reuse inventory, not a claim that copied source was created during the event",
+  "files": [
+    {
+      "path": "App.tsx",
+      "sourcePath": "App.creator.tsx",
+      "sourceSha256": "fea7fd49cbf4f8e5a647c44862e974d92d38ae554f6889fe9e8858303eb68a8f",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "android/.gitignore",
+      "sourceSha256": "ed2e83b6a71e3b048dc2681be0bdf534a5ec81d4eded17012e78a6b252422465",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/build.gradle",
+      "sourceSha256": "93739dd946f3b565315c610477b3eafe0d2b29957e4d568933c78f6bac3301a5",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "android/app/debug.keystore",
+      "sourceSha256": "221e0a3106aa4c3ccc154e0a418b55020b3f9ea6e84f92e8749cd9e2f39f5e58",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/proguard-rules.pro",
+      "sourceSha256": "8bd4d7b69a1d78e8322b459b5e8d48234adce7481df04da34c0140d52ffb367a",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/debug/AndroidManifest.xml",
+      "sourceSha256": "fb1795032c764d975376e1612ab7022058eca2268a45efbe731a47a5d3ac0f60",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/debugOptimized/AndroidManifest.xml",
+      "sourceSha256": "fb1795032c764d975376e1612ab7022058eca2268a45efbe731a47a5d3ac0f60",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/AndroidManifest.xml",
+      "sourceSha256": "f47b3dd1815d526a9619206a88be7352588f37fd30123531a0fb5041947ec2fe",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "android/app/src/main/java/com/pushforge/app/MainActivity.kt",
+      "sourceSha256": "9339ddbb516ab69f11a7c824615ed39969d2e59dd4f8bd8192000564d872cf64",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/java/com/pushforge/app/MainApplication.kt",
+      "sourceSha256": "2a7978f39f3804ba50dc59b6b39c9ffab7b2b091c67d121ee43eb663c95b9f22",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/drawable-hdpi/splashscreen_logo.png",
+      "sourceSha256": "721c895579cb08ec4c9a0fe7dadafe9a97c33ef758d3578ad5e8b540de59f974",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/drawable-mdpi/splashscreen_logo.png",
+      "sourceSha256": "f84b9b17a4a1c7d7dd840cd272c07a6c3fd66d5a9826b64bb53facb6f176bc24",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/drawable-xhdpi/splashscreen_logo.png",
+      "sourceSha256": "e1c5250e339add5ed7849cb0859d052edb9781abb91db049e68ae3a4059247d7",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/drawable-xxhdpi/splashscreen_logo.png",
+      "sourceSha256": "23d97ccb41a821ee345b2c5bb0c9bdab730a751a9227925acbf0af021dc38a9b",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/drawable-xxxhdpi/splashscreen_logo.png",
+      "sourceSha256": "be9fac5c4cda48c41dce592288c486524bba3e4ca7fa00c0a04a46928154b5bf",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/drawable/ic_launcher_background.xml",
+      "sourceSha256": "51fca95679d075ddbe2b9fe7ad2efb5ef545c5770a9ad6cafe8bf610c18c67be",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/drawable/rn_edit_text_material.xml",
+      "sourceSha256": "738e3aaad53180caba1419a6d5db8465a0742662fe59a4bbaf05f1061cbc3390",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "sourceSha256": "4695650219221a8a70d9aa16e683ddfc6587c52ebb465aa43508c94bc9fd6d34",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "sourceSha256": "4695650219221a8a70d9aa16e683ddfc6587c52ebb465aa43508c94bc9fd6d34",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-hdpi/ic_launcher.webp",
+      "sourceSha256": "90e6b9fb52e629de7c346100fc9c851c2a99bb2dbb16eda7a0bc47c0e7163c3d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-hdpi/ic_launcher_background.webp",
+      "sourceSha256": "f5672b75ca1152a2ca15a419b15014f8b685fc0d73f070b3747ab385b8ed5394",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.webp",
+      "sourceSha256": "77618c4cf15ddc886bbc14baaf365e367db07d7fcbb859dd261519c009ad4f95",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-hdpi/ic_launcher_monochrome.webp",
+      "sourceSha256": "6e51d5d21d70387839fd9db5630a9010eec20fc0fa3a8483a6fa71ce96e5dddf",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp",
+      "sourceSha256": "4db29bf0ad56d23246ff3d346a306a1bd8c27407e5618c08000d1916a651a637",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-mdpi/ic_launcher.webp",
+      "sourceSha256": "8bd68d4b966a5f67c523baffbf82af271c7ef966f7ba5948fdc99d0d29dfdbd6",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-mdpi/ic_launcher_background.webp",
+      "sourceSha256": "0a27222f51b9eb447df820343127406d08c29bc4356c932579368bb0bbd32875",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.webp",
+      "sourceSha256": "57e24fa48a9e5c5e3925578476021d9dc25d00f23ae59f7c94dbf7e5c3badafe",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-mdpi/ic_launcher_monochrome.webp",
+      "sourceSha256": "e603c82ad86fad422fdd2b9076cbf3a5c9a7e05de0082e5327e8d2f06134af58",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp",
+      "sourceSha256": "83b9b8e0a5d96d8feb72fd6f66ec105c9d7567a67affef95976cf968bd221e23",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xhdpi/ic_launcher.webp",
+      "sourceSha256": "6d79f58ef23d445562e73784a4e171a48567a3a0c83a74079b97d6a5b09ad851",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xhdpi/ic_launcher_background.webp",
+      "sourceSha256": "6601c65d0fda77c3ffc9ce384bd51244e03318c99489889b71fce33cfbb55f1e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp",
+      "sourceSha256": "9fad443a373b2d608657e7f0f97705ff50d759eed0f84e2c6bc7f7054b37f3dc",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xhdpi/ic_launcher_monochrome.webp",
+      "sourceSha256": "cc1683b7903036bd22920eab577440b2b47220299d218252734f5cd8e1a17d3a",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp",
+      "sourceSha256": "7e6ea489d4b0f5d45b26409fea18f337e3618e88a118fe273e9ee2ff2edb14c7",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp",
+      "sourceSha256": "4344a3b3932051e9ce30b00c0854a053e8380872e7e5aff617523aa686382cf2",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher_background.webp",
+      "sourceSha256": "65387f63ecdaf0e38f88ee687c14c08796f209fd37477dec25a29b29c57c42e1",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.webp",
+      "sourceSha256": "2900cbf264c8e5f054e5775517a7b0f74d9b70584f50c63313ae8fcc614dc789",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher_monochrome.webp",
+      "sourceSha256": "d4fb8abda16452b72fe3f3c5dc57faeb21e7addd285edd15f08b7eca02bb5253",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp",
+      "sourceSha256": "fe32d9c6f9e275490fbf107fb7b5a0f875435feae5836fc353119003bf902e25",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp",
+      "sourceSha256": "4f66325ccbfa66c920e3f15cd781b438aefef5c9a1baddf917f74ba1217ff14c",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_background.webp",
+      "sourceSha256": "bdcb69e524a83dc66eba67b572aca33525be7eaa661707acdbd66f89c40ef821",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp",
+      "sourceSha256": "9bf8d34e593642304891d175ff51e9b793e18bc4449eb0671c3481438a8bf1be",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_monochrome.webp",
+      "sourceSha256": "6c9c87eefa8a9c30b558006fcd96a5f754e6e9dc7cd301ca69d683e901076634",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp",
+      "sourceSha256": "5610c78b9119bfbca264ff2c878076f980f93e0228257fcaa3934f2cae0822c3",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/values/colors.xml",
+      "sourceSha256": "79aed7a4974d6583500722082f03146d71ffcacf2d96504b4c57de195b3582b6",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/values/strings.xml",
+      "sourceSha256": "5bbf553ef9638704242dbada6c36ba8b982aa9f2cac74af011b67b7b1d2b4563",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/app/src/main/res/values/styles.xml",
+      "sourceSha256": "e40414258372e05336fde31cd6a59ba286f0735dcc548fec42180b59af12b0f0",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/build.gradle",
+      "sourceSha256": "bdb916d3fe7085c9e9f3bb45bd5eacb97f5d2c5a2b2af965642f7d904739ca68",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/gradle.properties",
+      "sourceSha256": "0aa0d146b3630ddb3c25a3fbfa2c49ffa2e4826ce95beadc19d367b8185fa1a8",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/gradle/wrapper/gradle-wrapper.jar",
+      "sourceSha256": "b3a875ddc1f044746e1b1a55f645584505f4a10438c1afea9f15e92a7c42ec13",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/gradle/wrapper/gradle-wrapper.properties",
+      "sourceSha256": "a180163249c7252412ddaee1c7adcf59f6494b1183136f690fbd9a3b8aaed00e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/gradlew",
+      "sourceSha256": "fb68debc1b1acf8ec55dc0d5e5495e1dedd0bd6b61f304bee61613eeb2bd9b92",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/gradlew.bat",
+      "sourceSha256": "982f1b2979dd2d13505c11e92192ab43eef338242ca61587f86f8d7fbc86f67b",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "android/settings.gradle",
+      "sourceSha256": "f444abc67142f0809c6fe6d535504dae374a0be9b38096e7c77ce6bcbfb9f8fa",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "assets/audio/app/achievement.wav",
+      "sourceSha256": "ad087c7de00efacabf1daddec36f3b16df7fcc8b7e81e8d601dbc727bd5100f0",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/confirm.wav",
+      "sourceSha256": "ddb0ac2142f5e68e2e2217dee635b5588ab6bdfb59dc6e1fabeb6ebbe54726a7",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/countdown.wav",
+      "sourceSha256": "0049fe03795b6158fbb50a899109ad7b14f106b8543cec4e13d23b0cdc766f5d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/disconnect.wav",
+      "sourceSha256": "87e602b4d484aa5f1307fe1c821b150abe5bd5ace9bb356647354938ebce9630",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/draw.wav",
+      "sourceSha256": "8beedbf57a2b65c352db896a9fe7ea5f2272cf4eede8a070ee3cbbb106548f74",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/entranceBlossom.wav",
+      "sourceSha256": "d8b669d3ce82daf425fc289a11a698a7f241d33a55ec938e3b063375c470a86d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/entranceBronze.wav",
+      "sourceSha256": "2523deabcc8aa70083091d97380bf6c079bc63803311487086247f24ebd71286",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/entranceClash.wav",
+      "sourceSha256": "46dba839b4a0cf3bb1d4a3b5d62011ea026dcfe596a3ae857caa24dec73decb1",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/entranceDiamond.wav",
+      "sourceSha256": "ec03ab06756a68350ddd752d270c45705c07e5860ac78e490401454e615b8932",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/entranceDoor.wav",
+      "sourceSha256": "e0e6c226d91ec1114a149d163ada4bf539d73fbf4917eaa7e0df772b9e6143c1",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/entranceEmerald.wav",
+      "sourceSha256": "480bc427102cda3563d76980514d6ab86ac16603a1c420379972c216973f5c18",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/entranceForgeMaster.wav",
+      "sourceSha256": "03b43dfdf336aeab733730eba0e4e9c4590d1531d0ab84526b54d071d1d34efa",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/entranceGold.wav",
+      "sourceSha256": "f89b3a9606c3fe456bbbeb7873fb76166c281f23f25c5098f4ccd7e688c7b59a",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/entranceInferno.wav",
+      "sourceSha256": "6dc158a8083afc9b4d4ccce19b8745fb79621efecd96cc78a630aa4037b48d1d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/entranceIron.wav",
+      "sourceSha256": "9449c982c853f19d666f8f67c690b830e6067c3d230845d20558e24d5c372657",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/entranceMaster.wav",
+      "sourceSha256": "9832708a7e48ddf07ff8fa7225adadc1e9c200ea87ec7214178a949656e8a4d4",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/entrancePixel.wav",
+      "sourceSha256": "cbf7c30558aab04260fa96d0bf4b064cc788f51b7e396e7f3570f258800c066a",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/entrancePlatinum.wav",
+      "sourceSha256": "7563f589f7b209bc522e3bb55bdf7ed658bb23580dcbd98f7eb2728c7822cedd",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/entranceSilver.wav",
+      "sourceSha256": "4a87fffcdfd5bcafad142fcff85f88d18a547e0449e7b602f23b06562ece9b9f",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/equip.wav",
+      "sourceSha256": "79c2af81378467d26bc198b96224358d8d52b59c5fdc34048520663ab772613d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/error.wav",
+      "sourceSha256": "6a7b3207a4a4377a71a9a005150ea1e08d44e008f9fb0d247f35ced42dfa6836",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/finish.wav",
+      "sourceSha256": "f598b278ce116afe305cea9cb18caf84ebeb2d7d07e3af0724c383e0d78cd50f",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/gemPurchase.wav",
+      "sourceSha256": "60af5343e1ccdf570cfd0836b234d2886834708b02cefd4e0d381da71447329f",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/gemTick.wav",
+      "sourceSha256": "8eddf38bbc42c9c96ab123e0352ec15620de277816dbd89beb880d77830c7934",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/go.wav",
+      "sourceSha256": "f3824f195ffd24e3bb5eebc31e6a62f37a0e1ac0f8d05550f15372ce470f4af5",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/loss.wav",
+      "sourceSha256": "246197aa90e6e736467977268ce8c96f0a3e2c2b3f01f51b543b28605b8cef91",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/matchFound.wav",
+      "sourceSha256": "f05bd062447d56e899cb37c6965b294f7530fb5b4ccb019e03ee99d241bcdfd1",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/navigate.wav",
+      "sourceSha256": "cb27369f8264f3b120efb04902b4458680bbbf66d6f48eb97fa56c19f1f0b5a3",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/notification.wav",
+      "sourceSha256": "04c3b39cc31b707286aeaf8feae6604ecdf7938330f44fec0e8299ebf7ddbc35",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/press.wav",
+      "sourceSha256": "3da2a0cf0ac470683c04ac02ec1d73f2ddf66db252e02e3518a01a039ea5b853",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/purchase.wav",
+      "sourceSha256": "e389e369fc9631ee21f02e00096e1c325ab0e60d38ea796e68d8e57cb224cc1e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/queue.wav",
+      "sourceSha256": "bc6fceb82cffb982f6b5c952d72b3a4f8a9eec63cb806206bfd92b2d8c599edc",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/rankUp.wav",
+      "sourceSha256": "4941939730c7f53c365cce7263e9e77caed51a474251d066d4acbc746ccea451",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/ready.wav",
+      "sourceSha256": "89a4cf2b8edd9b7e5553ad98b27314c5f61c7485f5516b80c93720ba2c2e5115",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/reconnect.wav",
+      "sourceSha256": "997dcf052e0e2b969f03a56a9dd74db504820b71baad0b4842ac34f56fde99c2",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/toggle.wav",
+      "sourceSha256": "7128b6212da2a104b29c018ff9b1bf43ead9844bcc2585921df88e31a8370295",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/app/win.wav",
+      "sourceSha256": "c7667c44c881d4179883b55bcc97a5f6cd49eca7130ea5243f66e1cfacf60ebe",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/journey/astral-arrival.m4a",
+      "sourceSha256": "ee1389ceedde50f97b92d28138f3df79fc4c665f031e3dbe597440479040862b",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/journey/astral-victory.m4a",
+      "sourceSha256": "d9cf00d8bef9abf16f72bfd4018fa6d61a6ad0e616f2ab9a55c50a8564263c33",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/journey/chest.m4a",
+      "sourceSha256": "ab3391c41af461dc33e28ba10fd1e9e89c9214daf6fb069beca81a63ef500b39",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/journey/clockwork-arrival.m4a",
+      "sourceSha256": "dc45170e4387dc745870131690fc4fcd930887a0e14a144b2fc36aff0efbf499",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/journey/clockwork-victory.m4a",
+      "sourceSha256": "0af23dfc6ab12f24b650ef9877f23cd8f9456ef8eb82fe00f13ab44eab3728c4",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/journey/ember-arrival.m4a",
+      "sourceSha256": "4eadbe3214567d3e319d74c8e0a3cc57f8470b0f2958e8b77328f0d9ba0d1bc1",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/journey/ember-victory.m4a",
+      "sourceSha256": "d9d94384077b498017c8aaac0e28b41f855692966cac9f975454d89ed7c1c435",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/journey/forge.m4a",
+      "sourceSha256": "899768552a7287b4423d4ca326e4b5ed929ff65ae7d138d927795a6bea1fb478",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/journey/tidal-arrival.m4a",
+      "sourceSha256": "fbd15c62c115a4934b6a30d38ba68cba2bd1bc3108f063ec3d56f151e277daae",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/journey/tidal-victory.m4a",
+      "sourceSha256": "f208d6bc8a16469d1c3d057475ca5721d986cc854df0531f45913e15620bba06",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/journey/verdant-arrival.m4a",
+      "sourceSha256": "0af803780dbebda6d12b2a3feb96775bfb834a89f323cdf3221edab994c819fc",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/journey/verdant-victory.m4a",
+      "sourceSha256": "c75204204d1c53842b18e1f0a820fdaabb254da566b43649346436864fe5cad6",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/rpg/rpgBolt.wav",
+      "sourceSha256": "663d3b6a787fa5e221f27df74b6e7d8649a6607af98227d5fb1b88161fe7d735",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/rpg/rpgFlame.wav",
+      "sourceSha256": "841af1b621a7cfdb67fe8a9e7bb563a9c5c175903dc827b421f82819900cbb99",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/rpg/rpgLeaf.wav",
+      "sourceSha256": "47203ec201da894d0ec13192b01d3df43dea732a28430ccaf435d5b593a42db3",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/rpg/rpgPrism.wav",
+      "sourceSha256": "499c67b1f3fbe88236652a91c44ed840a85c5cb47489999eac9860432af3483b",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/audio/rpg/rpgWave.wav",
+      "sourceSha256": "032222962d6992360e1f344d72eabd7e5817acf86a28ecd485257df5c666e827",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/licenses/MMPose-LICENSE.txt",
+      "sourcePath": ".local-data/yolo-qualification/MMPose-LICENSE.txt",
+      "sourceSha256": "aa2c6f3408169b96e5547c875deb481c91502514c1885fa0acb4b596c8909cb9",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/licenses/onnxruntime-1.22.0-LICENSE.txt",
+      "sourcePath": ".local-data/yolo-qualification/onnxruntime-1.22.0-LICENSE.txt",
+      "sourceSha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/models/movenet-lightning-f16.tflite",
+      "sourceSha256": "0fac2226112d0371903ca86e3853cec24ef603a0b2f96f589b180f0ebdd135ab",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/models/movenet-thunder-f16.tflite",
+      "sourceSha256": "41641538679ec79b07d4101e591dda47d098c09af29607674b2a40b8a3798dd3",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "assets/models/yoloxpose_tiny_416_raw.onnx",
+      "sourcePath": ".local-data/yolo-qualification/yoloxpose_tiny_416_raw.onnx",
+      "sourceSha256": "c88de48a61688f02a9387aaefa4b14298c7ae9891e8e3e1396b7e07239a993be",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/android/CMakeLists.txt",
+      "sourceSha256": "5ca697628404b4d7d6da9dcf4fb4f00ba71ee03f2cd01d29d678c1f1201da99e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/android/build.gradle",
+      "sourceSha256": "8fc492e452c1ba4d7f9c2dc2de53a0ef09b37d467cea437db7b7e100a1da6645",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/android/gradle.properties",
+      "sourceSha256": "ee53181abc1fa44d705030a0413ee270b38e4a94056394053d56a83f36aad08d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/android/src/main/AndroidManifest.xml",
+      "sourceSha256": "343d5be1ac17cdd45d1a2f2ddc616c509290e655869125a9422a96d88aa66066",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/android/src/main/cpp/cpp-adapter.cpp",
+      "sourceSha256": "b3e686a6e79ea77ac516920cf609c73ebe1016b88a01fcd6ade30840bc03c205",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/android/src/main/java/com/margelo/nitro/yolopose/HybridYoloPose.kt",
+      "sourceSha256": "c5d4eae427c239369b52bc3f205d0d634c9c9719570f94775c2eb888bfe9e2f1",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/android/src/main/java/com/margelo/nitro/yolopose/YoloPosePackage.java",
+      "sourceSha256": "4e46cc8eeccea4d80726244daa2b0d79ab3bf2d38b7394347c05e798dc590fd8",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/nitro.json",
+      "sourceSha256": "0830e5d75099e31972b8af58df0c3065fb1af3f6640a8f8da153d06395845381",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/nitrogen/generated/.gitattributes",
+      "sourceSha256": "8401d61d91c8f286601668b1b3c8e90e324d3f09d45a22bc72712c9b5f18e348",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/nitrogen/generated/android/YoloPose+autolinking.cmake",
+      "sourceSha256": "f813d804fcb53b37962031b27e80149099104c268ac542c4efca30757322b9c9",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/nitrogen/generated/android/YoloPose+autolinking.gradle",
+      "sourceSha256": "5476d3cef1fe739873a942c90771385257db4a247a9878ed47fd27ce511dc430",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/nitrogen/generated/android/YoloPoseOnLoad.cpp",
+      "sourceSha256": "0df3b6bc8bb2da9fc12bdbb34e688cbe75bb295b36a3136156d1fcafd783de5e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/nitrogen/generated/android/YoloPoseOnLoad.hpp",
+      "sourceSha256": "165cdcee900a7ba0efcb1e20bc75a5012ccf6b0115c962d2fdaea67d152e9ceb",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/nitrogen/generated/android/c++/JHybridYoloPoseSpec.cpp",
+      "sourceSha256": "441c5b09d2390233b7c4929734d0b03c9e42afa0477c9e003701b6f8fb469d8f",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/nitrogen/generated/android/c++/JHybridYoloPoseSpec.hpp",
+      "sourceSha256": "40cb55598ed3c32ee2e4a968c189d1babf46806fb19cbd9a726aa168a161aba7",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/nitrogen/generated/android/kotlin/com/margelo/nitro/yolopose/HybridYoloPoseSpec.kt",
+      "sourceSha256": "00cead2ba4430898cbf4168ed82f25d931dcfa58f4bce4c7f41763f22328bb7f",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/nitrogen/generated/android/kotlin/com/margelo/nitro/yolopose/YoloPoseOnLoad.kt",
+      "sourceSha256": "c83bf5cb721ce88cbdfe19f69badb14082b88e84f728f77f4543428d8f1c8d02",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/nitrogen/generated/shared/c++/HybridYoloPoseSpec.cpp",
+      "sourceSha256": "8e692bcf5e7efa9345d92d85e603ee39cb2af7b497ded10be80cbfb58d35c012",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/nitrogen/generated/shared/c++/HybridYoloPoseSpec.hpp",
+      "sourceSha256": "82c167506b8cfb359249a8881841f03990a87a58667e8fb6f8473e8cbc002fed",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/package.json",
+      "sourceSha256": "be991176dd0cdd2eae23c8cbbff6971bae237e6bc438ccd6cfde548207b37b5c",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/react-native.config.js",
+      "sourceSha256": "5e1ed3397f94afc38817d2accca1a1870281d09e3b746c0f0ea03ce7ba680511",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/src/YoloPose.nitro.ts",
+      "sourceSha256": "be4ebbf83ebb97fc31e4654b2ca62070775cd0c0fab94298dde1e3c05d68251c",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "packages/yolo-pose-android/src/index.ts",
+      "sourceSha256": "0600685d328778252a42f0475b8fc225e5a911b76681958248bc719eaa5639e5",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "scripts/build-android.ps1",
+      "sourcePath": "scripts/build-android-local.ps1",
+      "sourceSha256": "1584675cf6f5665c6a205c140f90c8a69eb090f8d6963c83db93de931644e6cb",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "src/audio/NavigationSoundCleanup.tsx",
+      "sourceSha256": "46821226b0e278b0574bb6a31d2f54e13665f3fba9ae6d9569ee8f6b6508a949",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/audio/SoundEffectsContext.ts",
+      "sourceSha256": "fadb1c570a192f1627f34bce4dee94e02c9bd4492f0c4a8fab25bd6a7ccdf19d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/audio/SoundEffectsEngine.ts",
+      "sourceSha256": "2676d9fe5ffcaa33da4d0d137ae85cb59b1bd95a63647b1bfed18b8b67094ed1",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/audio/SoundEffectsProvider.tsx",
+      "sourceSha256": "e2b07f18f26b7ca9308124136fa59069fe05f160b22628afc76fdde365ee96eb",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/audio/SoundToggle.tsx",
+      "sourceSha256": "ce1e7b9bc858e9a79f4bcba70c8dfaa9a11131b6b10b40c1e340ced434acc004",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/audio/audioSession.ts",
+      "sourceSha256": "9da51b537b8ee551ce1660a301acad86c612f865ffda6926727829a2d3b09fe2",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/audio/soundSources.ts",
+      "sourceSha256": "8de111e49874d3a55f497564296ffbeec5df5aa10493f620c053997db4048738",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/audio/soundTransport.ts",
+      "sourceSha256": "c284f0c90353a9552694f8c01d1b3e7903684727840f863f9833ad0d6196be28",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/components/AppErrorBoundary.tsx",
+      "sourceSha256": "46ccce4f3f44c1cf76d3f8c0de2c95f82f7d526c57bd5668e8421ec277eee4ee",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/components/InteractionMotion.tsx",
+      "sourceSha256": "8cef27b7334abce9e4187c6f9a123a974efdfc26ff2ff88eb08fc0e1ba1ade2f",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/components/PlayerAvatar.tsx",
+      "sourceSha256": "0b1effdd6ece449d76c91304c9de92622cc99d499a2d46d75899cf2dde18024d",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "src/components/PoseCamera.native.tsx",
+      "sourceSha256": "3993cb2f0f348cee839e8e3360b04607aeaecc845766308c563afbdd41eacc1d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/components/PoseCamera.web.tsx",
+      "sourceSha256": "b529a201d062e7a7a4a95ca17df395ef6c24105996cecf64590272487f6775c7",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/components/PrimaryButton.tsx",
+      "sourceSha256": "483722cf7a1621c151cd6a3223fa47bb01fbec1af11ac0c76bcbf10866a3ba24",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/components/SkeletonOverlay.tsx",
+      "sourceSha256": "9e8d4c43a7d0687a14b775b74b0995b3ec46de62831f1172dd44cf6496906b03",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/components/SoundPressable.tsx",
+      "sourceSha256": "4d3daf8bd2c468ebbd0a77d06f05d0af79fbf8b0e0b933ac25cab1646233cb3b",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/components/ValueSlider.tsx",
+      "sourceSha256": "c00aaefe34c1d6cf8f9493393dfd94e2a6e10608bbaf75f1e334549055d76aab",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/components/ValueSlider.web.tsx",
+      "sourceSha256": "c0441bb29876c32b9f4b38247441fb85497dd0bd64f050168907fefc14f990b3",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/components/compactWebLayout.ts",
+      "sourceSha256": "5fba53e8bd0455495db74b5c87c12fbb167d140ec939a4a02484629514ca28db",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/components/useCompactWebLayout.ts",
+      "sourceSha256": "3459fbd552c3c1fc3edf45d270f6f99ce8f4bbb30bfde93601f2168ccd239e3b",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/components/useRankAnimation.ts",
+      "sourceSha256": "2e2e345f5b942ac68ab51472a8eeba2b08df2e38d68d6c508c317f8f7b1a3f37",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/config/features.ts",
+      "sourceSha256": "a168161e6f07edad1cb16ec8144281b41fb9846afee56a9c3316aa36380e0ba0",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/constants/defaults.ts",
+      "sourceSha256": "5c5307ab28453008bef3ecb247b8ff9ba054d3c57d007b856b30407079f0d249",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/constants/theme.ts",
+      "sourceSha256": "8aed0d26307f0abed52e3a9d46df445e3d8243e60689a142a4088f2b0d192c3d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/creator/CreatorStudioScreen.test.tsx",
+      "sourceSha256": "c19a165fab6d219a873e22c77af6aa0e45bc44e6be84928767155dd3382bf1d1",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "src/creator/CreatorStudioScreen.tsx",
+      "sourceSha256": "e8198bfe9205207440a56c2cf1ff0760b4c26f6897d52a602561ca5d05c539d4",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "src/creator/StudioAvatar.tsx",
+      "sourceSha256": "7a7c09637f7934ca17b57dd902306cf4a0cb852a9e928380af3dc401f53945bd",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/creator/StudioProfilesEditor.test.tsx",
+      "sourceSha256": "eb58dbaecdf393f6e6a4095bf808a7f5373a3efc8145588301ad1c012b5a4ec2",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/creator/StudioProfilesEditor.tsx",
+      "sourceSha256": "b765958fe8e46679d1ec217e73c8862884f5d2dfbdc6bcd1e070012bc8086267",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "src/creator/VideoBattleScreen.test.tsx",
+      "sourceSha256": "614902fd59de16728d478c6ad1a43b2684c3d5594c4de699d2003232fae139eb",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "src/creator/VideoBattleScreen.tsx",
+      "sourceSha256": "161d7062f7e6709b2b34ebe1277ba58c1b6812ed88d809da1d2d330f82edc3fa",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "src/creator/clipRepository.test.ts",
+      "sourceSha256": "f449bd6464924b3e5f760b190e42d2c792214ae922ed1b546c331d7ec1bc5e2b",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/creator/clipRepository.ts",
+      "sourceSha256": "84b19d3671e1492c1c8256efd68c71b018bfe71429017098c487ff6244f5d74f",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "src/creator/studioProfiles.ts",
+      "sourceSha256": "3bcb5c6c2ffb319565906f04173c3d4dbd38b1df6463b683f0bc7b26e9e3e5b1",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "src/creator/studioProfilesRepository.test.ts",
+      "sourceSha256": "9e8f306636f7d78569495c142e7e00fd5176c4dab669fcaa15eaf0d9c42772d9",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/creator/studioProfilesRepository.ts",
+      "sourceSha256": "79d7209ff458632f85595363d08ee2dfa6d2974e53fd7e2103a846f82071f438",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/creator/videoRival.test.ts",
+      "sourceSha256": "f204fb65a7745b0732b89adfc0d69212030fa6872a07e29f3e81ff9c3fa0c7a1",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/creator/videoRival.ts",
+      "sourceSha256": "277043f7fc3a467c6c718541f6a5ff597c1937753e70fbab5984b042cb7280b5",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "src/debug/detectorDiagnostics.ts",
+      "sourceSha256": "13df4ee495745abc055d50258bd078c1dc504949f2e02e37c3a9f405ed3c7280",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/debug/detectorGate.ts",
+      "sourceSha256": "9137fd3df50d07791fbbf3136a2beb49a3a7495aed622287846f9d9e48af4a69",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/debug/detectorLabCandidates.ts",
+      "sourceSha256": "927af28d974075b65407aadf2de4410cf7e2b3734c52d486421a6a7fd108891f",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/debug/hybridMlV1Local.ts",
+      "sourceSha256": "d6ae4ddf66d3358ba066d70f68039a8d2f28e655669130d99fc31671eb1fd4cd",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/debug/mlV1Local.ts",
+      "sourceSha256": "5c91d86ac6bc7105e6e3f6607f62d737aa1fc9de77d21d10dceb93ad9a43be0f",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/debug/poseTrace.ts",
+      "sourceSha256": "9b1f06e0ea83fb888a4bac8ad9cb13966a9cfe22ebd1348022f4ec37a99acd32",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/debug/soloHybridLocal.ts",
+      "sourceSha256": "8106df52ed2abd001eb704d93a12817a4324a6ba9993d72bc4db55e8af02db0a",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/debug/soloLocalMode.ts",
+      "sourceSha256": "17cf285d502aceba21caa82ea85291a7d9ea2c5aee12d85808fcc0ecb8de734d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/ExerciseDetector.ts",
+      "sourceSha256": "e884c4c498899ed9844cc2312b6777a339f6636bdad355421c1f53abe9e15ad4",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/PushupContextDetector.test.ts",
+      "sourceSha256": "3de79973a5feadaa171ec6b4143442920d1ebedd656798a1d6e1b427417206ae",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/PushupContextDetector.ts",
+      "sourceSha256": "196e1468b8234a81a340049b06d10361e2bb3dd966d7c6314c72860b67342751",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/PushupDetector.test.ts",
+      "sourceSha256": "3d9c31cbe5123526baa6a10989a9e67a2ad02dcd810ac04dd56b67da97f16128",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/PushupDetector.ts",
+      "sourceSha256": "3ff8fb95955522358d1fbf089a3b78bef582b46cb4cb80831c6d143919af607d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/PushupFormAnalyzer.ts",
+      "sourceSha256": "cae69d2b02c8f22a869a1fda92336a59d2abfe8d0131ee7d7244b6f5187c9fb6",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/PushupMotionStateMachine.test.ts",
+      "sourceSha256": "46a54f526da1cfbce9720fd7c71963a7658e79586fdf4c2d9d039a85c7330eb1",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/PushupMotionStateMachine.ts",
+      "sourceSha256": "5dc45449bbc40dfee0f96f7b3b30c36ce55d99e7b4383886a4110923236814ba",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/PushupVariantClassifier.ts",
+      "sourceSha256": "d830ffbefae1aaffe06f20667ab44557cd4394c12909a49a9ed522f7f38f25e9",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/frontViewPlank.ts",
+      "sourceSha256": "96c69fb887e79f7f3f7c8cf0e77216f167e7b5c0937da67d19ac9b06447c1480",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/hybrid/HybridCandidateGenerator.test.ts",
+      "sourceSha256": "6e487f53cf8be303b1ac8eb063c9c00ff3a315c43c676dc08631cde2856b0c5a",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/hybrid/HybridCandidateGenerator.ts",
+      "sourceSha256": "de5d69d5a48ea58fdfe5e566f244dd2dd2ad6a2d3720f28a2d04d078eb672764",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/hybrid/HybridSafetyValidator.ts",
+      "sourceSha256": "1e2d36535d0eab106ae58ac48e03237c0b688a3f4bb25edc6ef03b37c1142c49",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/hybrid/hybridPoseGeometry.ts",
+      "sourceSha256": "dd662dad4a725914f19f75bbf609f8ddfdf5e40f591790d1a0b4b5fc61c9f54d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/lab/PositiveLegPushupDetector.ts",
+      "sourceSha256": "ed166e2a90fd902a579f550de2e76fa56af5bcefe33d825925ff323cffcd4c2e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/lab/frontViewAcquisition.test.ts",
+      "sourceSha256": "39c0a9a84f7abbe9d4e0b7fb3128067318a94828b387deee8b45fc59a791e944",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/lab/frontViewFixtures.ts",
+      "sourceSha256": "a07ccbe44a6ac84afb54b14e595b3f06dbe675af85366b22e33dbe9f3f62c083",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/lab/labCandidates.test.ts",
+      "sourceSha256": "bb7a7f664422a0dd4e03f1a0f20658444cc235db40c9446747f30dcfe4fad942",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/lab/v6FormSideEvidence.test.ts",
+      "sourceSha256": "257015e916cf284d9ca5204e6208500880edab8069c0585f036aa01cc7d6aada",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/pushupFeedback.ts",
+      "sourceSha256": "48a11ea85da897574a5841cfc56c484900da2d232214ac365a36373aeaee7ce2",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/pushupRules.ts",
+      "sourceSha256": "8b377ef96d6da65ef51983de797de08a985035f57b92fbb5981502c2bb706697",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/pushupTypes.ts",
+      "sourceSha256": "7308a4770e0c1e33a14fae47bc32e8c74b033a561b7235596cb2786910b415d8",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/repQuality.ts",
+      "sourceSha256": "1be621028c8272931be89b50e257fc977fec73e00df4be4db7273edc743d0fc4",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v5/PushupDetectorV5.test.ts",
+      "sourceSha256": "efc1d664c1bb46513dce795f063c2dd155b3dc5cbf7b07c572e245e0c330a4de",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v5/PushupDetectorV5.ts",
+      "sourceSha256": "c9441a0c91678b5d0b7e70752f814993d290d9f883e06d2bbbc3464a4e463756",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v5/PushupReadinessV5.test.ts",
+      "sourceSha256": "53331e780864a015bce0d7fd7e49252bdc7565456a68760030cfbdddd69d7d81",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v5/PushupReadinessV5.ts",
+      "sourceSha256": "b32cd4f3f1f832d072e54accf81409c5e0a34758f4561c7c06dfeec0c542cdca",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v5/PushupStateMachineV5.test.ts",
+      "sourceSha256": "cd11e1bb68c940bf43f00cc528142b3e2a8477617cf073ff21f33a25c62ac37b",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v5/PushupStateMachineV5.ts",
+      "sourceSha256": "d6c0ab2dded65df049143d3441940c5cc27e6d03be629a2f41401099c7ab61fe",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v5/TemporalSideSelectorV5.test.ts",
+      "sourceSha256": "9dca447e1bb032a1fc3fb5c5f99a7d233e837e0ad87e00fe9efb572217bdcbc5",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v5/TemporalSideSelectorV5.ts",
+      "sourceSha256": "fec2ddae4a3193173a25c9aad7ed36f041f3e0053f1880ca40f8dbf7b655453e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v5/replayBenchmarkV5.test.ts",
+      "sourceSha256": "5b98edc8ed8fd9179ffec89f0d792c00cf386dde365109e75dfd838deb3bf350",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v5/replayBenchmarkV5.ts",
+      "sourceSha256": "3fe072b225a5c868a1e94d195e8730194823835a43c6fee4d407be969cd6e089",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v5/v5Fixtures.ts",
+      "sourceSha256": "dc33d0d060e00388e2cccfb728607d2f5838b8f7f818d9a8e5e7acc4674ae2e3",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v5/v5Types.ts",
+      "sourceSha256": "d102e84e64e3c7780d7e081f089a1c9aae7d47733b37cc53fdc4a5034a5dc4ce",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v6/PushupDetectorV6.pipeline.test.ts",
+      "sourceSha256": "6256d4f90eeb6b544e2c41b2888a516672a44bd76b7d6a0da723bd3bb73034d0",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v6/PushupDetectorV6.test.ts",
+      "sourceSha256": "8254d48f40cd0281fbb6adda3711275337a2224ed9ca2db82b29437d5476531a",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/v6/PushupDetectorV6.ts",
+      "sourceSha256": "99f19f516dceec2310436f71070ab3a3a6093750a4d0156291c0934f0dacc6fa",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/workoutDetector.test.ts",
+      "sourceSha256": "d6c8e7d8eda4851a2cf2dc2c04e6ec529ba34ecff8b0b3b4436a8af4753d3f8c",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/exercises/pushup/workoutDetector.ts",
+      "sourceSha256": "8378ad87f3363c9e2c42b140b69df648338cf40b5acd7b7fbb535ecfc9cd819e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/game/xp.ts",
+      "sourceSha256": "4148d9556387c2162159cc8541ec4d259fea0147b1a795a5deb364c6f3b4d307",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/hooks/useCameraRecovery.ts",
+      "sourceSha256": "c55c750a42103bff17dbfd8cb422579f02cf34fa18bafbba0d0d7c93c8093f42",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/hooks/usePreferredCamera.ts",
+      "sourceSha256": "a537ccb593606979f496d6c439234d16e9532e0c70c9cb602ccc1eeb64ef87db",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/hooks/useWorkoutSession.ts",
+      "sourceSha256": "fc3ddb890bc836c6b400ccd86397379cb2b2cde647676312d877cb75992b4caf",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/multiplayer/results/MatchVictoryCelebration.tsx",
+      "sourceSha256": "b77acd8bf8150c88a4558fa26c5f1e81c03b773d4bd34cd0c4e0cc5ebe70e819",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/multiplayer/video/browserCameraStream.ts",
+      "sourceSha256": "8069d1251676b46820c5e2bafb63ec65347db7f479ec9fed38e34d64c678e093",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/WebBlazePoseEstimator.web.ts",
+      "sourceSha256": "b70776160974dd876c99a782018fafd4dc8c29a92af0b1bea4d3aa8f58516037",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/WebMoveNetPoseEstimator.web.test.ts",
+      "sourceSha256": "3b1c2f60bb5d6e80e8f5983f6c2bbf3981916091c1d4db875655bc091f8ee170",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/WebMoveNetPoseEstimator.web.ts",
+      "sourceSha256": "ea40fb7bd15dc47e77f015e5da208b50d29bd459584c35e9d7060c5d1052637b",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/cameraDisplay.test.ts",
+      "sourceSha256": "19146ffc921b9867fc8947a86b111539b03700d3244a7388db8e5291a15c5a0e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/cameraDisplay.ts",
+      "sourceSha256": "3e4628f4dab0a3913f535414da557ade829720af9d789cc2c6f855e7b2daa71d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/cameraPermissionAction.ts",
+      "sourceSha256": "2ef652c2bdad735cae8d5cb689c6028f814d70447917058b4e15f93a5c141c3d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/cameraSelection.test.ts",
+      "sourceSha256": "8f5bb94fb11007014a896512207f5eb60651aa88a3490e5faf7bdc075da77934",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/cameraSelection.ts",
+      "sourceSha256": "ff3d77b30cdf90df2081b10c1c04e639705b253f91fcf5de3870cac323aaffb6",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/frameConversion.test.ts",
+      "sourceSha256": "40e9e2d1029a37340c910acf83a15c21b17c3c7757b078f69854549643577d03",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/frameConversion.ts",
+      "sourceSha256": "d49a6180643d30b431a3c8a50a4284999e486a88617a40bb5cee1ed272f3637d",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/moveNet.ts",
+      "sourceSha256": "9c1333c819f2bbbe3f8989a73b5dbf73ea2a0b8d67997b63e00daf41b67b0634",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseEngineV3.test.ts",
+      "sourceSha256": "835d0b85fd99fb5bba161effda380efdca9f975288bb88b3bc8d8bbcb1c97725",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseEngineV3.ts",
+      "sourceSha256": "0a195c3235c46a2ea8ced45b6cb53b318dfaa96f5c506aaf47b7da2adb9f3a85",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseInferenceSchedule.test.ts",
+      "sourceSha256": "6702e73f675449521c7dcc15dfaaf9d9baf7841bea44a5cd0a2087e86a199777",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseInferenceSchedule.ts",
+      "sourceSha256": "c6842eff3c5d0e1c89fb3fd973db238f1aec040dd64095510b829f083655a66e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseMath.test.ts",
+      "sourceSha256": "7177a08cf1ef53f450d57bde74b3006abe4766fd45d8829edf8f356be60b6e48",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseMath.ts",
+      "sourceSha256": "5fadf85af05f6da6e505d9083c2473cfe7ba520dddc91d2222ada4b8735dfff9",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseMetrics.test.ts",
+      "sourceSha256": "8e9fa6126a323feb9705589a782631abb442ea2de6da2df4e18371091e272531",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseMetrics.ts",
+      "sourceSha256": "f068f38cfa690dbf8a6fb448173220ed9c4320c6964b996e4d67d678bc14b168",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseModelAssets.test.ts",
+      "sourceSha256": "daa0474ccbd618717a7d64e38875f6b3db3699cb0f8745824afcf704d447b240",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseModelBenchmark.test.ts",
+      "sourceSha256": "00b884612400a49179bf45139a7b2215c0b03062b51b2ff57c251c8b454cf25c",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseModelBenchmark.ts",
+      "sourceSha256": "d7b07deed4ff1000bd2f85f523241a40b170398a6bba5779102090e2aa4a8ff7",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseModels.test.ts",
+      "sourceSha256": "8586a046b6129177086d6755f43b9525884ac07389a0717261d2f231b5881772",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseModels.ts",
+      "sourceSha256": "c0c88fd842c8050534e6259f39af9ff31774cd4ee755510eeddca9c97a8adc53",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseProjection.test.ts",
+      "sourceSha256": "352edcc3795007adc52d076e2654a2025124527be8811a832256951dc2642109",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseProjection.ts",
+      "sourceSha256": "6007859db26ccc0c83f94a31f6a22263dda4a8461dd652ae87a22dfca25d972b",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseQuality.test.ts",
+      "sourceSha256": "62fdd3fe51e0c28dc5c8a9d6b3b5df9a2c86177ec754d9db3e11101e1298fd9f",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseQuality.ts",
+      "sourceSha256": "60b2ef69ca5ac8127dcb6bb820c2287481d165998f4aaa86b5a1660c496c7a57",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/poseTypes.ts",
+      "sourceSha256": "8ec6d1537120c5c551063024d001abe1d51c5b48575ce7fd8dc91e9b0fbdb43b",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/sideSelector.ts",
+      "sourceSha256": "210ce9e89b6109306ea9cde1548904bfb1dc069e60f7bf9e07face764d99721f",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/smoothing.test.ts",
+      "sourceSha256": "c35e899b9987c4706278cb08f2413dcad1b0986be528f177dd8969689f1340b4",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/smoothing.ts",
+      "sourceSha256": "bd3801a8c89657d5ea86e8651d6a4b2fb2aa91da0f9f236cc7f43cb216779112",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/useBundledTensorflowModel.test.ts",
+      "sourceSha256": "3c4c23cceb3853d5874767a55fd4f2cce8961889e214cde9b3968db399235030",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/useBundledTensorflowModel.ts",
+      "sourceSha256": "30d549c817219902fd8ac2718ecd9974e450cbd6c4b3bd7330595bf6dd143c8c",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/webCamera.test.ts",
+      "sourceSha256": "dba300b0590ac8a3700dc47a077b47bf6df35a45196ab4dc1150665983c437e7",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/webCamera.ts",
+      "sourceSha256": "10d37f186b37946e70831d97f1a446f1a7d1a9ab3a4ef1fb91701071fe4c356e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/webInferenceScheduler.test.ts",
+      "sourceSha256": "56ea546a48680c33158f917166b0391a1bb6856fc0084cdfc590bc3cf3ae6032",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/webInferenceScheduler.ts",
+      "sourceSha256": "726ec7f13773b2eadcf5ef11ab634ec8cd1ac7461783dec2b78df03554596e8e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/webPoseIntegration.test.ts",
+      "sourceSha256": "00f442a33136ade692a87b811ebeb3ed426e685ff110d98b354998d321b44f34",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/webPoseMapping.test.ts",
+      "sourceSha256": "fc6969685a077d9cb02a6a8f0c6483d946394deaf4517b5496d800df486d4ab3",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/webPoseMapping.ts",
+      "sourceSha256": "98f1e3f80748653621ffe608f6a5f88c0a4a0ecc7b142838da56fd7a30d5ad8e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/yoloPoseAdapter.test.ts",
+      "sourceSha256": "cf22dc232cd75fac0b5e49a34ef7e3741393d6ee49d7cbe87d983efd18a3064e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/pose/yoloPoseAdapter.ts",
+      "sourceSha256": "2d8262ad6fa9116feb24e446ef5ef32afca2137c6dd20f6b5d6f07fe1d4d55d6",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/services/analytics.ts",
+      "sourceSha256": "8815c1302d710acf8749266500f01b1d447b75f6c41deea0181142190a6a8188",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/shop/CosmeticArtwork.tsx",
+      "sourceSha256": "7bc98945350bc4e64c277e08f943c78fb69cdcbcb83aab0d07c70c2366f8917e",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/shop/cosmeticVisuals.ts",
+      "sourceSha256": "a7c127f66279a69906037244f257d13993829ec499164ac34fad3c628b0bbac6",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/storage/database.ts",
+      "sourceSha256": "88d7c1b04586936e5bfae869e1464d2a4547c21aa780fc32cb2956557d60c0c9",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/store/appStore.ts",
+      "sourceSha256": "ce435487e47edd81e5c47bed8983b77005662c2280079e86a358ef1207c8cae2",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "src/test/setupSvg.ts",
+      "sourceSha256": "caa449768ec6dfff56efbb6bd3b943f3d9feafecdda4af85dee8994aabad94d7",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/tests/poseFixtures.ts",
+      "sourceSha256": "196f0d1b79c885fb002156b3198f5fb64ce88c1d2f765f8f4573f2292d752b0b",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/types/assets.d.ts",
+      "sourcePath": "src/types/assets.d.ts",
+      "sourceSha256": "426ace174814a1e9d1e57725dc18e53170c373ba33eae5aef204bbfd60675e90",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/types/models.ts",
+      "sourceSha256": "354348f4accac3f286bfd7467c291371cb70083f9840608adedcd80a36282709",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "src/types/navigation.ts",
+      "sourceSha256": "fa11665addd5aafe8ff45614e75b60174f7a0bda5dbf60ff39f61b98663e7a41",
+      "contentUnchangedAfterLineEndingNormalization": false
+    },
+    {
+      "path": "src/utils/format.ts",
+      "sourceSha256": "305fa1c595fb9f6b77d277561e3915b2ea943f082b3129564d92b29ebd109052",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/workouts/calibrationGate.ts",
+      "sourceSha256": "4d651a159f79b9bdcd08facc2b45bf9df1fe29e22c0e9d4d0d2d862209d55119",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/workouts/cameraGuidance.ts",
+      "sourceSha256": "3696c4cb6e7ea041673906f43643751c213ce9f3af3c171796df50f180537c97",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/workouts/favoriteWorkout.ts",
+      "sourceSha256": "2a7f67cc740cbb6a39f9c0335951483fc89bd23985693b9e801f6f64a35d94da",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/workouts/ghostBattle.ts",
+      "sourceSha256": "efbebea3e8def67ef56b64e3a1fcfee6384ba009a7137a313e45b4db1801cdfc",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/workouts/soloSetup.ts",
+      "sourceSha256": "64db532b6c7059a5880b0710cf15e095538975256258fe4c3d93078302a6e321",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/workouts/workoutModes.ts",
+      "sourceSha256": "84ed634b7a88991fa8fd250efe4954456dca702bb574d727f97542c5230f56a9",
+      "contentUnchangedAfterLineEndingNormalization": true
+    },
+    {
+      "path": "src/workouts/workoutPoseReady.ts",
+      "sourceSha256": "6d59e45268a40a2c9582170015fd1793c6ab20fb37a034c015c3c60cad5c0809",
+      "contentUnchangedAfterLineEndingNormalization": true
+    }
+  ]
+}

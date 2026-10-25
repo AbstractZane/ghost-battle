@@ -1,0 +1,20 @@
+{
+  "$schema": "https://nitro.margelo.com/nitro.schema.json",
+  "cxxNamespace": ["yolopose"],
+  "ios": {
+    "iosModuleName": "YoloPose"
+  },
+  "android": {
+    "androidNamespace": ["yolopose"],
+    "androidCxxLibName": "YoloPose"
+  },
+  "autolinking": {
+    "YoloPose": {
+      "android": {
+        "language": "kotlin",
+        "implementationClassName": "HybridYoloPose"
+      }
+    }
+  },
+  "ignorePaths": ["**/node_modules"]
+}

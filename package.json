@@ -1,0 +1,92 @@
+{
+  "name": "ghost-battle",
+  "version": "0.1.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@pushpvp/yolo-pose-android": "file:packages/yolo-pose-android",
+    "@react-navigation/bottom-tabs": "^7.18.16",
+    "@react-navigation/core": "^7.22.1",
+    "@react-navigation/native": "^7.3.16",
+    "@react-navigation/native-stack": "^7.18.8",
+    "@tensorflow-models/pose-detection": "^2.1.3",
+    "@tensorflow/tfjs-backend-webgl": "^4.22.0",
+    "@tensorflow/tfjs-converter": "^4.22.0",
+    "@tensorflow/tfjs-core": "^4.22.0",
+    "expo": "~57.0.25",
+    "expo-asset": "~57.0.18",
+    "expo-audio": "~57.0.5",
+    "expo-build-properties": "~57.0.22",
+    "expo-dev-client": "~57.0.19",
+    "expo-document-picker": "~57.0.3",
+    "expo-file-system": "~57.0.7",
+    "expo-haptics": "~57.0.3",
+    "expo-keep-awake": "~57.0.1",
+    "expo-speech": "~57.0.3",
+    "expo-sqlite": "~57.0.3",
+    "expo-status-bar": "~57.0.1",
+    "expo-video": "~57.0.5",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-fast-tflite": "^3.0.1",
+    "react-native-gesture-handler": "~2.32.0",
+    "react-native-nitro-image": "^0.15.1",
+    "react-native-nitro-modules": "^0.36.5",
+    "react-native-reanimated": "4.5.1",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "~4.26.0",
+    "react-native-svg": "15.15.4",
+    "react-native-url-polyfill": "^4.0.0",
+    "react-native-vision-camera": "^5.2.2",
+    "react-native-vision-camera-worklets": "^5.2.2",
+    "react-native-web": "^0.21.2",
+    "react-native-worklets": "0.10.1",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.3.14",
+    "@eslint/js": "^10.0.1",
+    "@expo/ngrok": "^4.1.0",
+    "@tensorflow/tfjs": "^4.22.0",
+    "@types/node": "^26.2.0",
+    "@types/pngjs": "^6.0.5",
+    "@types/react": "~19.2.2",
+    "@types/react-dom": "^19.2.7",
+    "@vitest/coverage-v8": "^4.1.11",
+    "eslint": "^10.8.1",
+    "eslint-config-prettier": "^10.1.8",
+    "ffmpeg-static": "^5.3.0",
+    "ffprobe-static": "^3.1.0",
+    "jpeg-js": "^0.4.4",
+    "jsdom": "^30.0.1",
+    "pngjs": "^7.0.0",
+    "prettier": "^3.9.6",
+    "tsx": "^4.20.6",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.67.0",
+    "vitest": "^4.1.11"
+  },
+  "scripts": {
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "web": "expo start --web",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "format:check": "prettier --check .",
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm run verify:detector && npm test",
+    "verify:detector": "node scripts/verify-detector-reuse.mjs"
+  },
+  "overrides": {
+    "metro": {
+      "image-size": "2.0.4"
+    },
+    "xcode": {
+      "uuid": "11.1.1"
+    },
+    "@expo/ngrok": {
+      "uuid": "11.1.1"
+    }
+  },
+  "private": true
+}

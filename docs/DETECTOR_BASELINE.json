@@ -1,0 +1,114 @@
+{
+  "source": "PushPVP before standalone Ghost Battle pass",
+  "normalization": "UTF-8, CRLF converted to LF",
+  "files": [
+    {
+      "path": "src/hooks/useWorkoutSession.ts",
+      "normalizedSha256": "fc3ddb890bc836c6b400ccd86397379cb2b2cde647676312d877cb75992b4caf"
+    },
+    {
+      "path": "src/components/PoseCamera.native.tsx",
+      "normalizedSha256": "3993cb2f0f348cee839e8e3360b04607aeaecc845766308c563afbdd41eacc1d"
+    },
+    {
+      "path": "src/components/PoseCamera.web.tsx",
+      "normalizedSha256": "b529a201d062e7a7a4a95ca17df395ef6c24105996cecf64590272487f6775c7"
+    },
+    {
+      "path": "src/exercises/pushup/frontViewPlank.ts",
+      "normalizedSha256": "96c69fb887e79f7f3f7c8cf0e77216f167e7b5c0937da67d19ac9b06447c1480"
+    },
+    {
+      "path": "src/exercises/pushup/PushupContextDetector.ts",
+      "normalizedSha256": "196e1468b8234a81a340049b06d10361e2bb3dd966d7c6314c72860b67342751"
+    },
+    {
+      "path": "src/exercises/pushup/PushupDetector.ts",
+      "normalizedSha256": "3ff8fb95955522358d1fbf089a3b78bef582b46cb4cb80831c6d143919af607d"
+    },
+    {
+      "path": "src/exercises/pushup/pushupFeedback.ts",
+      "normalizedSha256": "48a11ea85da897574a5841cfc56c484900da2d232214ac365a36373aeaee7ce2"
+    },
+    {
+      "path": "src/exercises/pushup/PushupFormAnalyzer.ts",
+      "normalizedSha256": "cae69d2b02c8f22a869a1fda92336a59d2abfe8d0131ee7d7244b6f5187c9fb6"
+    },
+    {
+      "path": "src/exercises/pushup/PushupMotionStateMachine.ts",
+      "normalizedSha256": "5dc45449bbc40dfee0f96f7b3b30c36ce55d99e7b4383886a4110923236814ba"
+    },
+    {
+      "path": "src/exercises/pushup/pushupRules.ts",
+      "normalizedSha256": "8b377ef96d6da65ef51983de797de08a985035f57b92fbb5981502c2bb706697"
+    },
+    {
+      "path": "src/exercises/pushup/pushupTypes.ts",
+      "normalizedSha256": "7308a4770e0c1e33a14fae47bc32e8c74b033a561b7235596cb2786910b415d8"
+    },
+    {
+      "path": "src/exercises/pushup/PushupVariantClassifier.ts",
+      "normalizedSha256": "d830ffbefae1aaffe06f20667ab44557cd4394c12909a49a9ed522f7f38f25e9"
+    },
+    {
+      "path": "src/exercises/pushup/repQuality.ts",
+      "normalizedSha256": "1be621028c8272931be89b50e257fc977fec73e00df4be4db7273edc743d0fc4"
+    },
+    {
+      "path": "src/exercises/pushup/workoutDetector.ts",
+      "normalizedSha256": "8378ad87f3363c9e2c42b140b69df648338cf40b5acd7b7fbb535ecfc9cd819e"
+    },
+    {
+      "path": "src/exercises/pushup/hybrid/HybridCandidateGenerator.ts",
+      "normalizedSha256": "de5d69d5a48ea58fdfe5e566f244dd2dd2ad6a2d3720f28a2d04d078eb672764"
+    },
+    {
+      "path": "src/exercises/pushup/hybrid/hybridPoseGeometry.ts",
+      "normalizedSha256": "dd662dad4a725914f19f75bbf609f8ddfdf5e40f591790d1a0b4b5fc61c9f54d"
+    },
+    {
+      "path": "src/exercises/pushup/hybrid/HybridSafetyValidator.ts",
+      "normalizedSha256": "1e2d36535d0eab106ae58ac48e03237c0b688a3f4bb25edc6ef03b37c1142c49"
+    },
+    {
+      "path": "src/exercises/pushup/lab/frontViewFixtures.ts",
+      "normalizedSha256": "a07ccbe44a6ac84afb54b14e595b3f06dbe675af85366b22e33dbe9f3f62c083"
+    },
+    {
+      "path": "src/exercises/pushup/lab/PositiveLegPushupDetector.ts",
+      "normalizedSha256": "ed166e2a90fd902a579f550de2e76fa56af5bcefe33d825925ff323cffcd4c2e"
+    },
+    {
+      "path": "src/exercises/pushup/v5/PushupDetectorV5.ts",
+      "normalizedSha256": "c9441a0c91678b5d0b7e70752f814993d290d9f883e06d2bbbc3464a4e463756"
+    },
+    {
+      "path": "src/exercises/pushup/v5/PushupReadinessV5.ts",
+      "normalizedSha256": "b32cd4f3f1f832d072e54accf81409c5e0a34758f4561c7c06dfeec0c542cdca"
+    },
+    {
+      "path": "src/exercises/pushup/v5/PushupStateMachineV5.ts",
+      "normalizedSha256": "d6c0ab2dded65df049143d3441940c5cc27e6d03be629a2f41401099c7ab61fe"
+    },
+    {
+      "path": "src/exercises/pushup/v5/replayBenchmarkV5.ts",
+      "normalizedSha256": "3fe072b225a5c868a1e94d195e8730194823835a43c6fee4d407be969cd6e089"
+    },
+    {
+      "path": "src/exercises/pushup/v5/TemporalSideSelectorV5.ts",
+      "normalizedSha256": "fec2ddae4a3193173a25c9aad7ed36f041f3e0053f1880ca40f8dbf7b655453e"
+    },
+    {
+      "path": "src/exercises/pushup/v5/v5Fixtures.ts",
+      "normalizedSha256": "dc33d0d060e00388e2cccfb728607d2f5838b8f7f818d9a8e5e7acc4674ae2e3"
+    },
+    {
+      "path": "src/exercises/pushup/v5/v5Types.ts",
+      "normalizedSha256": "d102e84e64e3c7780d7e081f089a1c9aae7d47733b37cc53fdc4a5034a5dc4ce"
+    },
+    {
+      "path": "src/exercises/pushup/v6/PushupDetectorV6.ts",
+      "normalizedSha256": "99f19f516dceec2310436f71070ab3a3a6093750a4d0156291c0934f0dacc6fa"
+    }
+  ]
+}

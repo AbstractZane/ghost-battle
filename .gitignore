@@ -1,0 +1,13 @@
+node_modules/
+.expo/
+.local-data/
+.tools/
+android/.gradle/
+android/build/
+android/app/build/
+android/app/.cxx/
+android/local.properties
+dist*/
+.env*
+*.log
+android/app/src/yoloLab/assets/
